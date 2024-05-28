@@ -1,0 +1,39 @@
+@import "bootstrap";
+
+.main_content {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    padding-top: 100px;
+    .left_content {
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            color: rgb(1, 123, 196);
+            font-weight: bold;
+            font-size: 18pt;
+        }
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .right_content {
+        width: 500px;
+        h3 {
+            font-size: 15px;
+            font-weight: normal;
+            color: #007f49;
+            text-transform: uppercase;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: #FEFEFE;
+        }
+        .btn{
+            height: 50px;
+            width: 200px;
+            margin-block-start: 20px;
+            // margin-inline-start: 100px;
+        }
+    }
+}
