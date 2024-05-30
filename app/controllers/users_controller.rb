@@ -1,25 +1,28 @@
 class UsersController < ApplicationController
+  before_action :logged_in, only: [:show]
+
   def new
     @user = User.new
   end
 
   def show
     @user = User.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "User not found."
-      redirect_to root_path
+  rescue ActiveRecord::RecordNotFound
+    flash[:danger] = "User not found."
+    redirect_to home_path
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to the Exam App"
-      redirect_to root_path
+      redirect_to home_path
     else
-      render 'new'
+      flash.now[:danger] = "Please enter correct information"
+      render :new
     end
   end
-
 
   private
     def user_params

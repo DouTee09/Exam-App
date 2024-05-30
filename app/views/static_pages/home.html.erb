@@ -1,22 +1,24 @@
-<div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <div class="col-md-3 mb-2 mb-md-0">
-        <a class="d-inline-flex link-body-emphasis text-decoration-none">
-            <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "50px", height: "50px") %>
-        </a>
-          <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
+<div class="container-main">
+    <div class="personal-info">
+      <div class = "title_box">
+        <p><strong>Thông tin cá nhân</strong></p>
       </div>
-
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2">History</a></li>
-        <li><a href="#" class="nav-link px-2">Contact</a></li>
-        <li><a href="#" class="nav-link px-2">About</a></li>
-      </ul>
-
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Thoát</button>
+      <p><strong>Mã số: </strong><%= current_user.id %></p>
+      <p><strong>Họ tên: </strong><%= current_user.name %></p>
+      <%= image_tag(gravatar_for(current_user.email), alt: current_user.name, class: "gravatar") %>
+    </div>
+    <div class="exam-section">
+      <div class = "title_box">
+        <p><strong>Bấm chọn bài thi dưới đây để làm bài</strong></p>
       </div>
-    </header>
+      <div class = "list_test">
+
+      </div>
+      <div class = "note-bottom">
+        <span>
+          Nếu chưa nhìn thấy bài thi, bạn cần chờ ở đây để được vào thi. Cán bộ coi/hỏi thi sẽ gọi bạn vào thi sớm. Sau 2 phút chờ, bạn có thể kích vào nút "Tải lại trang" dưới đây và kiểm tra bài thi đã xuất hiện hay chưa.
+      </span>
+      <%= link_to "Tải lại trang", "#", class: "btn btn-primary", onclick: "reloadPage()" %>
+      </div>
+    </div>
 </div>

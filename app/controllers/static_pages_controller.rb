@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
+  before_action :logged_in
+
+  def home; end
 end
