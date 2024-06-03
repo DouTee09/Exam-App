@@ -3,6 +3,7 @@
         <h5>Danh sách bài thi</h5>
     </div>
     <div class = "box-info-exam">
+        <%= link_to "Thêm mới", new_subject_exam_path, class: "btn btn-success"%>
         <table class="table">
             <thead>
                 <tr>
@@ -21,7 +22,10 @@
                     <td><%= @subject.name %></td>
                     <td>9am</td>
                     <td>10pm</td>
-                    <td><%= link_to "Đăng kí", "#", class: "btn btn-primary"%></td>
+                    <td>
+                        <%= link_to "Sửa", "#", class: "btn btn-info"%>
+                        <%= link_to "Xóa", "#", class: "btn btn-danger"%>
+                    </td>
                 </tr>
             </tbody>
         </table>
