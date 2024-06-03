@@ -1,0 +1,112 @@
+@import "bootstrap";
+
+.main_content {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    padding-top: 100px;
+    .left_content {
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            color: rgb(1, 123, 196);
+            font-weight: bold;
+            font-size: 18pt;
+        }
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .right_content {
+        width: 500px;
+        h3 {
+            font-size: 15px;
+            font-weight: normal;
+            color: #007f49;
+            text-transform: uppercase;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: #FEFEFE;
+        }
+        .btn {
+            height: 50px;
+            width: 200px;
+            margin-block-start: 20px;
+            padding-block: 12px;
+        }
+    }
+}
+
+$font-family: Arial, sans-serif;
+$bg-color: #f7f7f7;
+$container-bg-color: #fff;
+$border-color: #e0e0e0;
+$section-bg-color: #f9f9f9;
+$box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+$padding: 20px;
+$bg-box-color: #D9EDF7;
+
+.container-main {
+    margin: 0 auto;
+    background-color: $container-bg-color;
+    padding: $padding;
+    box-shadow: $box-shadow;
+    display: flex;
+    justify-content: center;
+    
+    p {
+        padding: 15px;
+    }
+
+    .title_box {
+        height: 50px;
+        background-color: $bg-box-color;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .personal-info, .exam-section {
+        border: 1px solid $border-color;
+        margin-bottom: 20px;
+        background-color: $section-bg-color;
+        height: 300px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin-left: 10px;
+    }
+
+    .personal-info {
+        img {
+            display: block;
+            margin: 0 auto 10px;
+        }
+        width: 300px;
+    }
+    
+    .exam-section {
+        text-align: center;
+    
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        width: 800px;
+        
+    }
+
+    .list_test {
+        height: 130px;
+        margin-top: 10px;
+        background-color: $bg-box-color;
+        border-radius: 10px;
+    }
+
+    .note-bottom {
+        margin-top: 5px;
+        a {
+            margin-top: 5px;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<div class="container-main">
+    <div class="personal-info">
+      <div class = "title_box">
+        <p><strong>Thông tin cá nhân</strong></p>
+      </div>
+      <p><strong>Mã số: </strong><%= current_user.id %></p>
+      <p><strong>Họ tên: </strong><%= current_user.name %></p>
+      <%= image_tag(gravatar_for(current_user.email), alt: current_user.name, class: "gravatar") %>
+    </div>
+    <div class="exam-section">
+      <div class = "title_box">
+        <p><strong>Bấm chọn bài thi dưới đây để làm bài</strong></p>
+      </div>
+      <div class = "list_test">
+
+      </div>
+      <div class = "note-bottom">
+        <span>
+          Nếu chưa nhìn thấy bài thi, bạn cần chờ ở đây để được vào thi. Cán bộ coi/hỏi thi sẽ gọi bạn vào thi sớm. Sau 2 phút chờ, bạn có thể kích vào nút "Tải lại trang" dưới đây và kiểm tra bài thi đã xuất hiện hay chưa.
+      </span>
+      <%= link_to "Tải lại trang", "#", class: "btn btn-primary", onclick: "reloadPage()" %>
+      </div>
+    </div>
+</div>

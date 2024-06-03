@@ -1,0 +1,39 @@
+<div class="main_content">
+  <div class="left_content">
+    <%= link_to "HỆ THỐNG THI TRỰC TUYẾN", "#" %>
+    <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "350px", height: "200px") %>
+  </div>
+  <div class="right_content">
+    <%= form_with(model: @user, local: true) do |form| %>
+      <h3>ĐĂNG KÍ TÀI KHOẢN</h3>
+      <hr>
+      <%= render "shared/error_messages", object: @user %>
+      <div class="form-group row">
+       <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <%= form.text_field :name, class: "form-control", placeholder: "Tên" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <%= form.email_field :email, class: "form-control", placeholder: "Email" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <%= form.submit "Create my account", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
