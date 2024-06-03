@@ -1,7 +1,5 @@
 class SubjectsController < ApplicationController
   before_action :logged_in
-
-
   def new
     @subject = Subject.new
   end

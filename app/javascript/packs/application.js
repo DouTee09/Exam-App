@@ -33,6 +33,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     //         document.getElementById('form-check').appendChild(tem);
     // });
     function addNewAnswer() {
-        
+  
     }
 });
