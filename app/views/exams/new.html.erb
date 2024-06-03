@@ -1,3 +1,4 @@
+<form id="form-exam">
 <div class="main-body-exam">
     <div class="title-box-exam">
         <div class="mb-3">
@@ -8,7 +9,8 @@
 
     <div class="body-exam">
         <div id="questions-container">
-            <%= link_to "Thêm câu hỏi", "javascript:void(0)", class: "btn btn-success", id: "add-question" %>
+            <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question" %>
+            <%= link_to "Save Exam", "#", class: "btn btn-info" %>
         </div>
     </div>
 </div>
@@ -21,7 +23,7 @@
             <div class="ques-fea">
                 <div class="form-check">
                         <%= link_to image_tag("circle.svg") %>
-                        <input type="text" class="form-control" placeholder="Please answer">
+                        <input type="text" class="form-control" placeholder="Please enter answer">
                         <%= link_to image_tag("file-excel.svg"), "#" ,class: "delete-answer" %>
                 </div>
             </div>
@@ -34,9 +36,11 @@
         </a>
     </div>
     <div class="delete-image">
-        <%= link_to image_tag("trash3.svg"), "#", class: "delete-button" %>
+        <%= link_to image_tag("edit_image.svg"), "#", class: "edit-button" %>
+        <%= link_to image_tag("delete_image.svg"), "javascript:void(0)", class: "delete-button", onclick: "removeQuestion()" %>
     </div>
 </div>
+</form>
 
 <template id="question-template">
     <div class="question-warpper">
@@ -46,7 +50,7 @@
                 <div class="ques-fea">
                     <div class="form-check">
                             <%= link_to image_tag("circle.svg") %>
-                            <input type="text" class="form-control" placeholder="Please answer">
+                            <input type="text" class="form-control" placeholder="Please enter answer">
                             <%= link_to image_tag("file-excel.svg"), "#" ,class: "delete-answer" %>
                     </div>
                 </div>
@@ -59,7 +63,10 @@
             </a>
         </div>
         <div class="delete-image">
-            <%= link_to image_tag("trash3.svg"), "#", class: "delete-button" %>
+            <%= link_to image_tag("edit_image.svg"), "#", class: "edit-button" %>
+            <a href="javascript:void(0)" onclick="removeQuestion()" >
+                <%= image_tag("delete_image.svg") %>
+            </a>
         </div>
     </div>
 </template>
@@ -68,20 +75,30 @@
     <li>
          <div class="ques-fea">
             <div class="form-check">
-                    <%= link_to image_tag("circle.svg") %>
-                    <input type="text" class="form-control" placeholder="Please answer">
-                    <%= link_to image_tag("file-excel.svg"), "#" ,class: "delete-answer" %>
+                        <%= link_to image_tag("circle.svg") %>
+                    <input type="text" class="form-control" placeholder="Please enter answer">
+                    <a href="javascript:void(0)" onclick="removeAnswer()" >
+                        <%= image_tag("file-excel.svg") %>
+                    </a>
             </div>
         </div>
     </li>
 </template>
-
-
 
 <script>
     function addNewAnswer(e) {
         var answerBox = event.target.parentNode.parentNode.querySelector("ul");
         var template = document.getElementById("answer-box").content.cloneNode(true);
         answerBox.appendChild(template);
+    }
+
+    function removeQuestion(e) {
+        var questionWrapper = event.target.parentNode.parentNode.parentNode;
+        questionWrapper.remove();
+    }
+
+    function removeAnswer(e){
+        const element = document.getElementById("answer-box");
+        element.remove();
     }
 </script>
