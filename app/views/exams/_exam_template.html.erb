@@ -1,0 +1,37 @@
+<template id="question-template">
+    <div class="question-warpper">
+        <input type="text" class="form-control" name="exam[questions][][content]" placeholder="Please enter question here">
+        <ul class="question-box">
+            <li>
+                <div class="ques-fea">
+                    <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exam[questions][][answers][][status]">
+                            <input type="text" class="form-control" name="exam[questions][][answers][][content]" placeholder="Please enter answer">
+                            <%= link_to image_tag("file-excel.svg"), "javascript:void(0)", class: "delete-answer", onclick: "removeAnswer()" %>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="choise-option">
+            <a href="javascript:void(0)" onclick="addNewAnswer()" >
+                <%= image_tag("circle.svg") %>
+                Add Answer
+            </a>
+        </div>
+        <div class="delete-image">
+             <%= link_to image_tag("delete_image.svg"), "javascript:void(0)", class: "delete-button", onclick: "removeQuestion()" %>
+        </div>
+    </div>
+</template>
+
+<template id="answer-box">
+    <li>
+         <div class="ques-fea">
+            <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exam[questions][][answers][][status]">
+                    <input type="text" class="form-control" name="exam[questions][][answers][][content]" placeholder="Please enter answer">
+                    <%= link_to image_tag("file-excel.svg"), "javascript:void(0)" ,class: "delete-answer", onclick: "removeAnswer()" %>
+            </div>
+        </div>
+    </li>
+</template>

@@ -1,0 +1,88 @@
+<div class = "title-edit">
+    <h1>Edit Exam</h1>
+</div>
+
+<%= form_for [@subject, @exam], html: { id:  "form-exam" } do |f| %>
+
+  <div class="main-body-exam">
+    <div class="title-box-exam">
+      <div class="mb-3">
+        <%= f.label :name, "Name Exam" %>
+        <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name %>
+      </div>
+    </div>
+
+    <div class="body-exam">
+      <div id="questions-container">
+        <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question" %>
+        <%= f.submit "Update", class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+
+  <% @exam.questions.each do |question| %>
+
+    <div class="question-warpper">
+         <%= f.text_field :questions, name: "exam[questions][][content]", class: "form-control", value: question["content"] %>
+        <ul class="question-box">
+            <li>
+                <div class="ques-fea">
+
+                    <% question["answers"].each do |answer| %>
+
+                        <div class="form-check">
+                            <%= f.radio_button :questions, name: "exam[questions][][answers][][status]", class: 'form-check-input' %>
+                            <%= f.text_field :questions, name: "exam[questions][][answers][][content]", class: "form-control", value: answer["content"] %>
+                            <%= link_to image_tag("file-excel.svg"), "javascript:void(0)", class: "delete-answer", onclick: "removeAnswer()" %>
+                        </div>
+
+                    <% end %>
+
+                </div>
+            </li>
+        </ul>
+
+        <div class="choise-option">
+          <a href="javascript:void(0)" onclick="addNewAnswer()">
+            <%= image_tag("circle.svg") %>
+            Add Answer
+        </a>
+        </div>
+
+        <div class="delete-image">
+            <%= link_to image_tag("delete_image.svg"), "javascript:void(0)", class: "delete-button", onclick: "removeQuestion()" %>
+        </div>
+    </div>
+
+  <% end %>
+
+<% end %>
+
+<%= render "exam_template" %>
+
+<script>
+    function addNewAnswer(e) {
+        var answerBox = event.target.parentNode.parentNode.querySelector("ul");
+        var box = document.getElementById("answer-box").content;
+        box.querySelector("input").name = `exam[questions][][answers][][content]`;
+        var template = document.getElementById("answer-box").content.cloneNode(true);
+        answerBox.appendChild(template);
+    }
+
+    function removeAnswer(e){
+        var answerWrapper = event.target.parentNode.parentNode;
+            answerWrapper.remove();
+    }
+
+    // function addNewQuestion(e){
+    //     var template = document.getElementById('question-template').content.cloneNode(true);
+    //     var formExam = document.getElementById('new_exam');
+    //     formExam.appendChild(template);
+    // }
+
+    function removeQuestion(e) {
+        var questionWrapper = event.target.parentNode.parentNode.parentNode;
+        questionWrapper.remove();
+    }
+    
+</script>

@@ -1,93 +1,52 @@
-<form id="form-exam">
-<div class="main-body-exam">
+<%= form_for [@subject, @exam], html: { id:  "form-exam" } do |form| %>
+  <div class="main-body-exam">
     <div class="title-box-exam">
         <div class="mb-3">
-            <h2 for="formGroupExampleInput" class="form-label">Name Exam</h2>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Please enter name exam here">
-        </div>
+        <%= form.label :name, "Name Exam" %>
+        <%= form.text_field :name, name: "exam[name]", class: "form-control", placeholder: "Please enter name exam here" %>
+      </div>
     </div>
 
     <div class="body-exam">
-        <div id="questions-container">
-            <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question" %>
-            <%= link_to "Save Exam", "#", class: "btn btn-info" %>
-        </div>
+      <div id="questions-container">
+        <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question" %>
+        <%= form.submit "Save Exam", class: "btn btn-info" %>
+      </div>
     </div>
-</div>
+  </div>
 
-
-<div class="question-warpper">
-    <input type="text" class="form-control" placeholder="Please enter question here">
-    <ul class="question-box">
+  <div class="question-warpper">
+    <%= form.text_field :questions, name: "exam[questions][][content]", class: "form-control", placeholder: "Please enter question here" %>
+      <ul class="question-box">
         <li>
-            <div class="ques-fea">
-                <div class="form-check">
-                        <%= link_to image_tag("circle.svg") %>
-                        <input type="text" class="form-control" placeholder="Please enter answer">
-                        <%= link_to image_tag("file-excel.svg"), "#" ,class: "delete-answer" %>
-                </div>
+          <div class="ques-fea">
+            <div class="form-check">
+              <%= form.radio_button :questions, false, name: "exam[questions][][answers][][status]", class: "form-check-input", id: "" %>
+              <%= form.text_field :questions, name: "exam[questions][][answers][][content]", class: "form-control", placeholder: "Please enter answer" %>
+              <%= link_to image_tag("file-excel.svg"), "javascript:void(0)", class: "delete-answer", onclick: "removeAnswer()" %>
             </div>
+          </div>
         </li>
-    </ul>
+      </ul>
     <div class="choise-option">
-        <a href="javascript:void(0)" onclick="addNewAnswer()" >
-            <%= image_tag("circle.svg") %>
-            Add Answer
-        </a>
+      <a href="javascript:void(0)" onclick="addNewAnswer()">
+        <%= image_tag("circle.svg") %>
+        Add Answer
+      </a>
     </div>
     <div class="delete-image">
-        <%= link_to image_tag("edit_image.svg"), "#", class: "edit-button" %>
-        <%= link_to image_tag("delete_image.svg"), "javascript:void(0)", class: "delete-button", onclick: "removeQuestion()" %>
+      <%= link_to image_tag("delete_image.svg"), "javascript:void(0)", class: "delete-button", onclick: "removeQuestion()" %>
     </div>
-</div>
-</form>
+  </div>
+<% end %>
 
-<template id="question-template">
-    <div class="question-warpper">
-        <input type="text" class="form-control" placeholder="Please enter question here">
-        <ul class="question-box">
-            <li>
-                <div class="ques-fea">
-                    <div class="form-check">
-                            <%= link_to image_tag("circle.svg") %>
-                            <input type="text" class="form-control" placeholder="Please enter answer">
-                            <%= link_to image_tag("file-excel.svg"), "#" ,class: "delete-answer" %>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div class="choise-option">
-            <a href="javascript:void(0)" onclick="addNewAnswer()" >
-                <%= image_tag("circle.svg") %>
-                Add Answer
-            </a>
-        </div>
-        <div class="delete-image">
-            <%= link_to image_tag("edit_image.svg"), "#", class: "edit-button" %>
-            <a href="javascript:void(0)" onclick="removeQuestion()" >
-                <%= image_tag("delete_image.svg") %>
-            </a>
-        </div>
-    </div>
-</template>
-
-<template id="answer-box">
-    <li>
-         <div class="ques-fea">
-            <div class="form-check">
-                        <%= link_to image_tag("circle.svg") %>
-                    <input type="text" class="form-control" placeholder="Please enter answer">
-                    <a href="javascript:void(0)" onclick="removeAnswer()" >
-                        <%= image_tag("file-excel.svg") %>
-                    </a>
-            </div>
-        </div>
-    </li>
-</template>
+<%= render "exam_template" %>
 
 <script>
     function addNewAnswer(e) {
         var answerBox = event.target.parentNode.parentNode.querySelector("ul");
+        var box = document.getElementById("answer-box").content;
+        box.querySelector("input").name = `exam[questions][][answers][][status]`;
         var template = document.getElementById("answer-box").content.cloneNode(true);
         answerBox.appendChild(template);
     }
@@ -98,7 +57,7 @@
     }
 
     function removeAnswer(e){
-        const element = document.getElementById("answer-box");
-        element.remove();
+        var answerWrapper = event.target.parentNode.parentNode;
+            answerWrapper.remove();
     }
 </script>

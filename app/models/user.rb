@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  has_many :subjects 
-  has_many :exams
+  has_many :subjects
   before_save { email.downcase! }
   validates :email, presence: true, length: { maximum: 255 },
                     uniqueness: true

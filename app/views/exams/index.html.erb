@@ -16,17 +16,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>KTGĐ-<%= @subject.name %></td>
-                    <td><%= @subject.name %></td>
-                    <td>9am</td>
-                    <td>10pm</td>
-                    <td>
-                        <%= link_to "Sửa", "#", class: "btn btn-info"%>
-                        <%= link_to "Xóa", "#", class: "btn btn-danger"%>
-                    </td>
-                </tr>
+                <% @exams.each_with_index do |exam, index| %>
+                    <tr>
+                        <th scope="row"> <%= index+1 %> </th>
+                        <td><%= exam.name %></td>
+                        <td><%= @subject.name %></td>
+                        <td>9am</td>
+                        <td>10pm</td>
+                        <td>
+                            <%= link_to "Sửa", edit_subject_exam_path(@subject, exam), class: "btn btn-info"%>
+                            <%= link_to "Xóa", subject_exam_path(@subject, exam), method: :delete ,class: "btn btn-danger"%>
+                        </td>
+                    </tr>
+                <% end %>
             </tbody>
         </table>
     </div>
