@@ -11,12 +11,3 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-document.addEventListener("DOMContentLoaded", (event) => {
-    document.getElementById('add-question').addEventListener('click', function( ) {
-        var template = document.getElementById('question-template').content.cloneNode(true);
-        var formExam = document.getElementById('form-exam');
-        formExam.appendChild(template);
-    });
-});
-

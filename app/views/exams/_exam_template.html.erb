@@ -5,7 +5,7 @@
             <li>
                 <div class="ques-fea">
                     <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exam[questions][][answers][][status]">
+                            <input class="form-check-input" type="radio" value="true">
                             <input type="text" class="form-control" name="exam[questions][][answers][][content]" placeholder="Please enter answer">
                             <%= link_to image_tag("file-excel.svg"), "javascript:void(0)", class: "delete-answer", onclick: "removeAnswer()" %>
                     </div>
@@ -28,7 +28,7 @@
     <li>
          <div class="ques-fea">
             <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exam[questions][][answers][][status]">
+                    <input class="form-check-input" type="radio" value="true">
                     <input type="text" class="form-control" name="exam[questions][][answers][][content]" placeholder="Please enter answer">
                     <%= link_to image_tag("file-excel.svg"), "javascript:void(0)" ,class: "delete-answer", onclick: "removeAnswer()" %>
             </div>

@@ -56,4 +56,6 @@ class ExamsController < ApplicationController
     params.require(:exam)
   end
 
+
+
 end
