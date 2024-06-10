@@ -141,3 +141,23 @@
         }
     }
 }
+
+.container-show {
+    .main-body-exam {
+        .questions-container {
+            h5 {
+                background: aliceblue;
+                height: 50px;
+                padding-block-start: 10px;
+                text-align: center;
+                border-radius: 10px;
+                color: red;
+            }
+        }
+    }
+    .submit-answer {
+        text-align: center;
+        margin-block-start: 10px;
+        margin-block-end: 30px;
+    }
+}

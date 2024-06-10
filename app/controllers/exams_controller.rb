@@ -46,6 +46,10 @@ class ExamsController < ApplicationController
     end
   end
 
+  def show
+    @exam = @subject.exams.find_by(id: params[:id])
+  end
+
   private
 
   def find_subject
