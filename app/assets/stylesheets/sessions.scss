@@ -1,2 +1,24 @@
 @import "bootstrap";
 
+.container{
+    header {
+        background-color: mintcream;
+        border-radius: 20px;
+        padding-inline-start: 10px;
+        padding-inline-end: 10px;
+        .col-md-3 {
+            a {
+                img {
+                    border-radius: 25px;
+                }
+            }
+        }
+        ul {
+            li {
+                .nav-link:hover {
+                    color: aqua;
+                }
+            }
+        }
+    }
+}

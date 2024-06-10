@@ -1,3 +1,14 @@
+.title-edit {
+    padding-block-end: 20px;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin-block-end: 20px;
+    padding-top: 10px;
+}
+
 .exam-container {
     height: auto;
     width: 90%;
@@ -41,19 +52,43 @@
         background-color: beige;
         border-radius: 10px;
         margin-block-end: 10px;
+        .mb-3 {
+            label {
+                padding-inline-start: 10px;
+            }
+        }
     }
+}
 
-    .body-exam {
+.question-warpper {
+    width: 70%;
+    margin: 0 auto;
+    margin-block-start: 20px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background-color: aquamarine;
+    border-radius: 10px;
+
+    ul li {
+        list-style: none;
         .ques-fea {
             display: flex;
             flex-direction: column;
             height: auto;
-            margin-block-start: 20px;
             background-color: aquamarine;
             border-radius: 10px;
             .form-check {
                 display: flex;
                 margin-block-start: 10px;
+                margin-inline-start: -40px;
+
+                .form-check-input {
+                    margin-inline-start: 1px;
+                    margin-inline-end: 10px;
+                    margin-block-start: 10px;
+                }
+
                 .form-control {
                     width: 90%;
                 }
@@ -76,18 +111,33 @@
                 }
             }
         }
-        .choise-option {
-            display: flex;
-            margin-inline-start: 40px;
-            margin-block-start: 5px;
-            img {
-                margin-block-start: 10px;
-                padding-inline-start: 10px;
-                margin-inline-end: 10px;
-            }
-            .form-control {
-                width: auto;
-            }
+    }
+    .choise-option {
+        display: flex;
+        margin-block-start: -15px;
+        margin-inline-start: 35px;
+        padding-inline-start: 10px;
+        background-color: lightcyan;
+        border-radius: 10px;
+        width: 130px;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        img {
+            padding-block-end: 5px;
+        }
+        .form-control {
+            width: auto;
+        }
+    }
+
+    .delete-image {
+        text-align: end;
+        padding-inline-end: 20px;
+        img {
+            height: 30px;
+            padding-block-end: 5px;
         }
     }
 }

@@ -1,5 +1,5 @@
 class Exam < ApplicationRecord
   belongs_to :subject
-  belongs_to :user
-  validates :content, presence: true
+
+  serialize :questions, Array
 end

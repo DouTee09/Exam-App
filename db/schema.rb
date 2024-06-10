@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2024_05_30_073735) do
   create_table "exams", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "time"
-    t.json "question"
+    t.text "questions"
     t.bigint "subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
