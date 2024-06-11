@@ -31,9 +31,9 @@
                     <% question["answers"].each do |answer| %>
 
                         <div class="form-check">
-                            <%= f.radio_button :questions, true, name: "exam[questions][][answers][][status][#{index + 1}]", class: "form-check-input", checked: answer["status"].present?, onchange: "changeSelected()" %>
-                            <%= f.text_field :questions, name: "exam[questions][][answers][][content]", class: "form-control", value: answer["content"] %>
                             <%= link_to image_tag("file-excel.svg"), "javascript:void(0)", class: "delete-answer", onclick: "removeAnswer()" %>
+                            <%= f.text_field :questions, name: "exam[questions][][answers][][content]", class: "form-control", value: answer["content"] %>
+                            <%= f.radio_button :questions, true, name: "exam[questions][][answers][][status][#{index + 1}]", class: "form-check-input", checked: answer["status"].present?, onclick: "changeSelected(#{index+1})" %>
                         </div>
 
                     <% end %>
@@ -76,10 +76,10 @@
     answerBox.appendChild(template);
   }
 
-  function changeSelected(e) {
+  function changeSelected(e, answerGroupID) {
     var inputTarget = event.target;
-    debugger
-    inputTarget.checked = true;
+    // $(`input[name="exam[questions][][answers][][status][${answerGroupID}]"]`).toArray().forEach((e) => $(e).prop("checked", false));
+    $(inputTarget).prop("checked", true);
     console.log(inputTarget)
   }
 
