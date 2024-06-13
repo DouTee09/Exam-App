@@ -12,13 +12,11 @@
         <p><strong>Bấm chọn bài thi dưới đây để làm bài</strong></p>
       </div>
       <div class="list_test">
-        <% @subjects.each do |subject| %>
-              <% subject.exams.each do |exam| %>
-                <h6>
-                  Môn học: <%= link_to subject.name, "#" %> - 
-                  Bài thi: <%= link_to exam.name, subject_exam_path(subject.id, exam.id) %>
-                </h6>
-              <% end %>
+        <% @exams.each do |exam| %>
+          <h6>
+            Môn học: <%= link_to exam.subject.name, "#" %> - 
+            Bài thi: <%= link_to exam.name, new_subject_exam_answer_path(exam.subject, exam) %>
+          </h6>
         <% end %>
       </div>
 

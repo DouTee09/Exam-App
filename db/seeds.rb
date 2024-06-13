@@ -7,6 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+# user = User.create!(
+#   name: "userTest",
+#   email: "usertest@example.com",
+#   password: "password",
+#   role: 0
+# )
+
+
+# admin = User.create!(
+#   name: "admin",
+#   email: "admin@example.com",
+#   password: "password",
+#   role: 1
+# )
+
 10.times do
   subject = Subject.create!(
     name: Faker::Educator.subject,

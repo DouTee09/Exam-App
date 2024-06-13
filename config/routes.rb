@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root "sessions#new"
 
-  get '/home', to: 'static_pages#home'
+  get "/home", to: "static_pages#home"
 
-  get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
+  get "/signup", to: "users#new"
+  post "/signup", to: "users#create"
 
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 
-  delete '/logout', to: 'sessions#destroy'
+  delete "/logout", to: "sessions#destroy"
 
   resources :users
 
   resources :subjects do
-    resources :exams
+    resources :exams do
+      resources :answers, only: [:new, :create, :show]
+    end
   end
 
-  resources :exam do
-    resources :answers
-  end
+  get "/history", to: "answers#index"
 end
