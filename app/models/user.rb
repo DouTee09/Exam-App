@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :subjects
+  has_many :answers
   before_save { email.downcase! }
   validates :email, presence: true, length: { maximum: 255 },
                     uniqueness: true

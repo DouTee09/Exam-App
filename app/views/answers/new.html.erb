@@ -1,0 +1,35 @@
+<div class = "container-show">
+    <%= form_for [@subject, @exam, @answer], html: { id:  "form-exam" } do |f| %>
+        <div class="main-body-exam">
+            <div class="title-box-exam">
+                <div class="mb-3">
+                    <%= f.label :name, "Name Exam" %>
+                    <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name, readonly: true %>
+                </div>
+            </div>
+            <div class="questions-container">
+                <h5>Danh sách câu hỏi</h5>
+            </div>
+        </div>
+        <% @exam.questions.each_with_index do |question, index| %>
+            <div class="question-warpper" data-id="<%= index + 1 %>">
+                <%= f.text_field :questions, name: "answer[questions][][content]", class: "form-control", value: question["content"], readonly: true %>
+                <ul class="question-box">
+                    <li>
+                        <div class="ques-fea">
+                            <% question["answers"].each do |answer| %>
+                                <div class="form-check">
+                                    <%= f.text_field :questions, name: "answer[questions][][answer][][content]", class: "form-control", value: answer["content"] %>
+                                    <%= f.radio_button :questions, true, name: "answer[questions][][answer][][status][#{index + 1}]", class: "form-check-input"%>
+                                </div>
+                            <% end %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        <% end %>
+        <div class = "submit-answer">
+           <%= f.submit "Submit Answer", class: "btn btn-success" %>
+        </div>
+    <% end %>
+</div>

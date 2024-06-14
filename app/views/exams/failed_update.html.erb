@@ -1,9 +1,10 @@
 <div class = "title-feature">
-  <h1>Edit Exam</h1>
+    <h1>Edit Exam</h1>
 </div>
 
 <%= form_for [@subject, @exam], html: { id:  "form-exam" } do |f| %>
   <div class="main-body-exam">
+    <%= render "shared/error_messages", object: @exam %>
     <div class="title-box-exam">
       <div class="mb-3">
         <%= f.label :name, "Name Exam" %>

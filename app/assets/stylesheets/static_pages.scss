@@ -48,6 +48,7 @@ $padding: 20px;
 $bg-box-color: #D9EDF7;
 
 .container-main {
+    height: auto;
     margin: 0 auto;
     background-color: $container-bg-color;
     padding: $padding;
@@ -70,7 +71,7 @@ $bg-box-color: #D9EDF7;
         border: 1px solid $border-color;
         margin-bottom: 20px;
         background-color: $section-bg-color;
-        height: 300px;
+        height: auto;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         margin-left: 10px;
@@ -97,10 +98,20 @@ $bg-box-color: #D9EDF7;
     }
 
     .list_test {
-        height: 130px;
+        height: auto;
         margin-top: 10px;
         background-color: $bg-box-color;
         border-radius: 10px;
+        padding-bottom: 10px;
+        h6 {
+            text-align: left;
+            padding-inline-start: 20px;
+            padding-block-start: 10px;
+            a {
+                text-decoration: none;
+                color: red;
+            }
+        }
     }
 
     .note-bottom {

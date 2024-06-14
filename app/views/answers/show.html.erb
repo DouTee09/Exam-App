@@ -1,0 +1,25 @@
+<div class = "container-answer">
+    <div class="answer-header">
+        <h5>Information Answer</h5>
+    </div>
+    <div class =  "information-answer">
+        <p>Tên môn học: <%= link_to @answers.exam.subject.name, "#" %></p>
+        <p>Tên bài thi: <a><%= @answers.exam.name %></a></p>
+    </div>
+
+    <% @answers.questions.each_with_index do |question, index| %>
+        <div class="question-wrapper">
+            <a><%= question["content"] %></a>
+            <div class = "ques-fea">
+                <% question["answer"].each do |ans| %>
+                    <div class= "form-check">
+                        <p><%= ans["content"] %></p>
+                        <%= radio_button_tag "answer[#{index}]", "#{index}", ans["status"].present?, disabled: true %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
+<br>
+<br>

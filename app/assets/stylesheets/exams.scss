@@ -1,4 +1,4 @@
-.title-edit {
+.title-feature {
     padding-block-end: 20px;
     width: 70%;
     margin: 0 auto;
@@ -81,7 +81,9 @@
             .form-check {
                 display: flex;
                 margin-block-start: 10px;
-                margin-inline-start: -40px;
+                margin-inline-start: -90px;
+                display: flex;
+                flex-direction: row-reverse;
 
                 .form-check-input {
                     margin-inline-start: 1px;
@@ -138,6 +140,35 @@
         img {
             height: 30px;
             padding-block-end: 5px;
+        }
+    }
+}
+
+.container-show {
+    .main-body-exam {
+        .questions-container {
+            h5 {
+                background: aliceblue;
+                height: 50px;
+                padding-block-start: 10px;
+                text-align: center;
+                border-radius: 10px;
+                color: red;
+            }
+        }
+    }
+    .submit-answer {
+        text-align: center;
+        margin-block-start: 10px;
+        margin-block-end: 30px;
+    }
+
+    .question-warpper {
+        .question-box {
+            .ques-fea {
+                margin-inline-start: -20px;
+                width: 95%;
+            }
         }
     }
 }
