@@ -5,18 +5,25 @@ class ExamsController < ApplicationController
     @exam = @subject.exams.new
   end
 
+  def failed_save
+    @exam = @subject.exams.new exam_params
+  end
+
+  def failed_update
+    @exam = @subject.exams.find_by(id: params[:id])
+  end
+
   def index
     @exams = @subject.exams
   end
 
   def create
     @exam = @subject.exams.build(name: exam_params[:name], questions: JSON.parse(exam_params[:questions].to_json))
-    if @exam.save!
+    if @exam.save
       flash[:success] = "Created exam successfully"
       redirect_to subject_exams_path
     else
-      flash[:danger] = "Can't create exam"
-      render :new
+      render "failed_save"
     end
   end
 
@@ -37,12 +44,11 @@ class ExamsController < ApplicationController
 
   def update
     @exam = @subject.exams.find_by(id: params[:id])
-    if @exam.update!(name: exam_params[:name], questions: JSON.parse(exam_params[:questions].to_json))
+    if @exam.update(name: exam_params[:name], questions: JSON.parse(exam_params[:questions].to_json))
       flash[:success] = "Exam updated successfully"
       redirect_to subject_exams_path
     else
-      flash[:danger] = "Exam not updated successfully"
-      redirect_to subject_exams_path
+      render "failed_update"
     end
   end
 

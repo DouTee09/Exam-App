@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_action :logged_in
   def index
     @answers = current_user.answers
   end
