@@ -14,6 +14,7 @@ class Exam < ApplicationRecord
       return unless questions.is_a?(Array)
 
       question_contents = []
+      check_status = 0;
       questions.each_with_index do |question, q_index|
         if question['content'].blank?
           errors.add(:base, "Question #{q_index + 1} content can't be blank")
@@ -33,6 +34,13 @@ class Exam < ApplicationRecord
             else
               answer_contents << answer['content']
             end
+
+            if answer['status'].present?
+              check_status += 1
+            end
+          end
+          if check_status == 0
+            errors.add(:base, "You must choose a correct answer in question #{q_index + 1}")
           end
         else
           errors.add(:base, "Answers in question #{q_index + 1} must be an array")
