@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_11_084216) do
+ActiveRecord::Schema.define(version: 2024_06_14_070557) do
 
   create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "score"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2024_06_11_084216) do
     t.integer "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "failed_attempts"
   end
 
   add_foreign_key "answers", "exams"

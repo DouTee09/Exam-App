@@ -49,13 +49,17 @@
         border-top-right-radius: 10px;
     }
     .title-box-exam {
-        background-color: beige;
-        border-radius: 10px;
         margin-block-end: 10px;
         .mb-3 {
+            border-radius: 10px;
+            background-color: beige;
+            margin-block-end: 10px;
             label {
                 padding-inline-start: 10px;
             }
+        }
+        .time-exam {
+            width: 30%;
         }
     }
 }

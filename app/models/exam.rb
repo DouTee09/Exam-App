@@ -5,7 +5,7 @@ class Exam < ApplicationRecord
   serialize :questions, Array
   validates :name, presence: true, length: { maximum: 255 },
                    uniqueness: true
-
+  validates :time, presence: true
   validate :questions_and_answers_content_present_and_unique
 
   private

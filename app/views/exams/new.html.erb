@@ -6,9 +6,13 @@
   <div class="main-body-exam">
     <div class="title-box-exam">
         <div class="mb-3">
-        <%= form.label :name, "Name Exam" %>
-        <%= form.text_field :name, name: "exam[name]", class: "form-control", placeholder: "Please enter name exam here" %>
-      </div>
+          <%= form.label :name, "Name Exam" %>
+          <%= form.text_field :name, name: "exam[name]", class: "form-control", placeholder: "Please enter name exam here" %>
+        </div>
+        <div class="mb-3 time-exam">
+          <%= form.label :time, "Time Exam" %>
+          <%= form.number_field :time, name: "exam[time]", class: "form-control", placeholder: "Please enter number of minutes here" %>
+        </div>
     </div>
 
     <div class="body-exam">

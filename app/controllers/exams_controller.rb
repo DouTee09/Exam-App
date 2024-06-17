@@ -18,7 +18,8 @@ class ExamsController < ApplicationController
   end
 
   def create
-    @exam = @subject.exams.build(name: exam_params[:name], questions: JSON.parse(exam_params[:questions].to_json))
+    @exam = @subject.exams.build(name: exam_params[:name], time: exam_params[:time], questions: JSON.parse(exam_params[:questions].to_json))
+
     if @exam.save
       flash[:success] = "Created exam successfully"
       redirect_to subject_exams_path
@@ -44,7 +45,7 @@ class ExamsController < ApplicationController
 
   def update
     @exam = @subject.exams.find_by(id: params[:id])
-    if @exam.update(name: exam_params[:name], questions: JSON.parse(exam_params[:questions].to_json))
+    if @exam.update(name: exam_params[:name], time: exam_params[:time], questions: JSON.parse(exam_params[:questions].to_json))
       flash[:success] = "Exam updated successfully"
       redirect_to subject_exams_path
     else
@@ -65,7 +66,4 @@ class ExamsController < ApplicationController
   def exam_params
     params.require(:exam)
   end
-
-
-
 end
