@@ -1,6 +1,6 @@
 class Exam < ApplicationRecord
   belongs_to :subject
-  has_many :answers
+  has_many :answers, dependent: :destroy
 
   serialize :questions, Array
   validates :name, presence: true, length: { maximum: 255 },

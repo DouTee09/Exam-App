@@ -6,9 +6,15 @@
                     <%= f.label :name, "Name Exam" %>
                     <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name, readonly: true %>
                 </div>
-                <div class="mb-3 time-exam">
-                    <%= f.label :time, "Time Exam" %>
-                    <%= f.number_field :time, name: "exam[time]", class: "form-control", value:@exam.time, readonly: true %>
+                <div class = "box-time">
+                    <div class="mb-3 time-exam">
+                        <%= f.label :time, "Time Exam" %>
+                        <%= f.number_field :time, name: "exam[time]", class: "form-control", value:@exam.time, readonly: true %>
+                    </div>
+                    <div class = "mb-3 clock-exam">
+                        <p>Time remaining </p>
+                        <span id="countdown"></span>
+                    </div>
                 </div>
             </div>
             <div class="questions-container">
@@ -37,3 +43,42 @@
         </div>
     <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var examTime = <%= @exam.time %>; 
+    var duration = examTime * 60; 
+    var currentUserId = "<%= current_user.id %>"; 
+
+    var storedUserId = localStorage.getItem("userId");
+    var endTime = localStorage.getItem("endTime");
+
+    if (storedUserId !== currentUserId) {
+      endTime = new Date().getTime() + duration * 1000;
+      localStorage.setItem("endTime", endTime);
+      localStorage.setItem("userId", currentUserId);
+    } else {
+      endTime = parseInt(endTime, 10);
+    }
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var remainingTime = endTime - now;
+      if (remainingTime <= 0) {
+        document.getElementById("countdown").innerText = "Time's up!";
+        localStorage.removeItem("endTime"); 
+        document.getElementById("form-exam").submit();
+      } else {
+        var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerText = minutes + "m " + seconds + "s";
+        setTimeout(updateCountdown, 1000);
+      }
+    }
+    updateCountdown();
+  });
+
+  document.getElementById("logout-link").addEventListener("click", function(event) {
+    localStorage.removeItem("userId"); 
+  });
+</script>
