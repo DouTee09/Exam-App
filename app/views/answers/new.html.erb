@@ -46,17 +46,26 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var examTime = <%= @exam.time %>; 
-    var duration = examTime * 60; 
-    var currentUserId = "<%= current_user.id %>"; 
+    var examTime = <%= @exam.time %>;
+    var duration = examTime * 60;
+    var userId = "<%= @user.id %>";
+    var examId = "<%= @exam.id %>";
+    var sessionKey = `session_${userId}_${examId}`;
+    var endTimeKey = `endTime_${userId}_${examId}`;
+    
+    var currentSession = sessionStorage.getItem(sessionKey);
+    var newSession = `${userId}_${examId}`;
+    
+    if (currentSession !== newSession) {
+      localStorage.removeItem(endTimeKey);
+      sessionStorage.setItem(sessionKey, newSession);
+    }
+    
+    var endTime = localStorage.getItem(endTimeKey);
 
-    var storedUserId = localStorage.getItem("userId");
-    var endTime = localStorage.getItem("endTime");
-
-    if (storedUserId !== currentUserId) {
+    if (!endTime) {
       endTime = new Date().getTime() + duration * 1000;
-      localStorage.setItem("endTime", endTime);
-      localStorage.setItem("userId", currentUserId);
+      localStorage.setItem(endTimeKey, endTime);
     } else {
       endTime = parseInt(endTime, 10);
     }
@@ -64,9 +73,10 @@
     function updateCountdown() {
       var now = new Date().getTime();
       var remainingTime = endTime - now;
+
       if (remainingTime <= 0) {
-        document.getElementById("countdown").innerText = "Time's up!";
-        localStorage.removeItem("endTime"); 
+        document.getElementById("countdown").innerText = "Time's up";
+        localStorage.removeItem(endTimeKey); 
         document.getElementById("form-exam").submit();
       } else {
         var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
@@ -77,8 +87,5 @@
     }
     updateCountdown();
   });
-
-  document.getElementById("logout-link").addEventListener("click", function(event) {
-    localStorage.removeItem("userId"); 
-  });
 </script>
+

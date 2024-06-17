@@ -10,6 +10,7 @@ class AnswersController < ApplicationController
 
 
   def new
+    @user = current_user
     @subject = Subject.find_by_id(params[:subject_id])
     @exam = @subject.exams.find_by_id(params[:exam_id])
     @answer = @exam.answers.new
