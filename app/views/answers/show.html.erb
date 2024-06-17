@@ -5,6 +5,7 @@
     <div class =  "information-answer">
         <p>Tên môn học: <%= link_to @answers.exam.subject.name, "#" %></p>
         <p>Tên bài thi: <a><%= @answers.exam.name %></a></p>
+        <p>Thời gian thi: <a><%= @answers.exam.time %> minute</a></p>
     </div>
 
     <% @answers.questions.each_with_index do |question, index| %>

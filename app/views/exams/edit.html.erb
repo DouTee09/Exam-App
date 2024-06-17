@@ -9,6 +9,10 @@
         <%= f.label :name, "Name Exam" %>
         <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name %>
       </div>
+      <div class="mb-3 time-exam">
+        <%= f.label :name, "Time Exam" %>
+        <%= f.number_field  :time, name: "exam[time]", class: "form-control", value: @exam.time %>
+      </div>
     </div>
 
     <div class="body-exam">

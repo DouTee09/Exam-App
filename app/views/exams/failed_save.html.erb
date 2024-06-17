@@ -10,12 +10,16 @@
         <%= f.label :name, "Name Exam" %>
         <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name %>
       </div>
+      <div class="mb-3 time-exam">
+        <%= f.label :name, "Time Exam" %>
+        <%= f.text_field :time, name: "exam[time]", class: "form-control", placeholder: "Please enter number of minutes here" %>
+      </div>
     </div>
 
     <div class="body-exam">
       <div id="questions-container">
         <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question", onclick: "addNewQuestion()" %>
-        <%= f.submit "Update", class: "btn btn-info" %>
+        <%= f.submit "Save", class: "btn btn-info" %>
       </div>
     </div>
   </div>
