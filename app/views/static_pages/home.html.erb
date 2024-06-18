@@ -18,6 +18,13 @@
             Bài thi: <%= link_to exam.name, new_subject_exam_answer_path(exam.subject, exam) %>
           </h6>
         <% end %>
+
+        <% @answers.each do |answer| %>
+          <h6>
+            Môn học: <%= link_to answer.exam.subject.name, "#" %> - 
+            Bài thi: <%= link_to answer.exam.name, edit_subject_exam_answer_path(answer.exam.subject, answer.exam, answer) %>
+          </h6>
+        <%end %>
       </div>
 
       <div class = "note-bottom">

@@ -9,9 +9,9 @@
           <%= form.label :name, "Name Exam" %>
           <%= form.text_field :name, name: "exam[name]", class: "form-control", placeholder: "Please enter name exam here" %>
         </div>
-        <div class="mb-3 time-exam">
-          <%= form.label :time, "Time Exam" %>
-          <%= form.number_field :time, name: "exam[time]", class: "form-control", placeholder: "Please enter number of minutes here" %>
+        <div class="mb-3 time-exam-create">
+          <%= form.label :time, "Time Exam(Minute)" %>
+          <%= form.number_field :time, name: "exam[time]", class: "form-control"%>
         </div>
     </div>
 
@@ -49,6 +49,10 @@
 <% end %>
 
 <%= render "exam_template" %>
+
+<br>
+<br>
+<br>
 
 <script>
   var counter = 1;

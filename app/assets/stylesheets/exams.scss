@@ -59,7 +59,27 @@
             }
         }
         .time-exam {
-            width: 30%;
+            width: 10%;
+            .form-control {
+                text-align: center;
+                margin-top: 10px;
+            }
+            label {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .time-exam-create {
+            width: 15%;
+        }
+        .box-time {
+            display: flex;
+            .clock-exam {
+                margin-inline-start: 20px;
+                width: 15%;
+                text-align: center;
+                padding-block-end: 10px;
+            }
         }
     }
 }

@@ -1,0 +1,67 @@
+<div class = "container-show">
+    <%= form_for [@subject, @exam, @answer], html: { id:  "form-exam" } do |f| %>
+        <div class="main-body-exam">
+            <div class="title-box-exam">
+                <div class="mb-3">
+                    <%= f.label :name, "Name Exam" %>
+                    <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name, readonly: true %>
+                </div>
+                <div class = "box-time">
+                    <div class="mb-3 time-exam">
+                        <%= f.label :time, "Time Exam" %>
+                        <%= f.number_field :time, name: "exam[time]", class: "form-control", value:@exam.time, readonly: true %>
+                    </div>
+                    <div class = "mb-3 clock-exam">
+                        <p>Time remaining </p>
+                        <span id="countdown"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="questions-container">
+                <h5>Danh sách câu hỏi</h5>
+            </div>
+        </div>
+        <% @exam.questions.each_with_index do |question, index| %>
+            <div class="question-warpper" data-id="<%= index + 1 %>">
+                <%= f.text_field :questions, name: "answer[questions][][content]", class: "form-control", value: question["content"], readonly: true %>
+                <ul class="question-box">
+                    <li>
+                        <div class="ques-fea">
+                            <% question["answers"].each do |answer| %>
+                                <div class="form-check">
+                                    <%= f.text_field :questions, name: "answer[questions][][answer][][content]", class: "form-control", value: answer["content"] %>
+                                    <%= f.radio_button :questions, true, name: "answer[questions][][answer][][status][#{index + 1}]", class: "form-check-input"%>
+                                </div>
+                            <% end %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        <% end %>
+        <div class = "submit-answer">
+           <%= f.submit "Submit Answer", class: "btn btn-success" %>
+        </div>
+    <% end %>
+</div>
+
+<script>
+    var examEndTime = new Date("<%= @answer.exp_time %>").getTime();
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var remainingTime = examEndTime - now;
+
+      if (remainingTime <= 0) {
+        document.getElementById("countdown").innerText = "Time's up";
+        document.getElementById("form-exam").submit();
+      } else {
+        var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerText = hours + "h " + minutes + "m " + seconds + "s";
+        setTimeout(updateCountdown, 1000);
+      }
+    }
+    updateCountdown();
+</script>
+

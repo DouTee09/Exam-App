@@ -63,17 +63,17 @@
 
 <%= render "exam_template" %>
 
+<br>
+<br>
+<br>
+
 <script>
-  // Dem so cau hoi hien co de sinh id cho cau moi
   var counter = <%= @exam.questions.size %>;
   
   function addNewAnswer(e) {
     var dataID = event.target.parentNode.parentNode.dataset.id;
     var box = document.getElementById("answer-box").content;
-
-    //Set them [dataID] vao name cua radio
     box.querySelector("input[type=radio]").name = `exam[questions][][answers][][status][${dataID}]`;
-
     var template = document.getElementById("answer-box").content.cloneNode(true);
     var answerBox = event.target.parentNode.parentNode.querySelector("ul");
     answerBox.appendChild(template);
@@ -81,7 +81,6 @@
 
   function changeSelected(e, answerGroupID) {
     var inputTarget = event.target;
-    // $(`input[name="exam[questions][][answers][][status][${answerGroupID}]"]`).toArray().forEach((e) => $(e).prop("checked", false));
     $(inputTarget).prop("checked", true);
     console.log(inputTarget)
   }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_14_070557) do
+ActiveRecord::Schema.define(version: 2024_06_18_070435) do
 
   create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "score"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2024_06_14_070557) do
     t.datetime "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "exp_time"
+    t.boolean "isSubmit", default: false
     t.index ["exam_id"], name: "index_answers_on_exam_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
