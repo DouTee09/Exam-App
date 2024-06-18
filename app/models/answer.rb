@@ -1,8 +1,11 @@
 class Answer < ApplicationRecord
   belongs_to :exam
   belongs_to :user
-  
+
   serialize :questions, Array
+
+  scope :exp_time_less_than_now, -> { where("? <= exp_time", Time.now) }
+  scope :not_submited, -> { where(isSubmit: false) }
 
   def calculate_score
     exam_questions = self.exam.questions
@@ -21,9 +24,8 @@ class Answer < ApplicationRecord
     user_correct_answers.each_with_index do |answer, index|
       score_count += 1 if exam_correct_answers[index] == answer
     end
-
     score = (score_count * 1.0 / exam_correct_answers.length)*10
 
-    update(score: score)
+    update(score: score, isSubmit: true)
   end
 end

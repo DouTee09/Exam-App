@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :exams do
       get "failed_save", to: "exam#failed_save"
       get "failed_update", to: "exam#failed_update"
-      resources :answers, only: [:new, :create, :show]
+      resources :answers, only: [:new, :update, :show, :edit]
     end
   end
 
