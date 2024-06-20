@@ -1,0 +1,27 @@
+<div class = "sub-container">
+    <%= render "add_subject" if current_user.role == 1 %>
+
+    <div class = "right-box-sub">
+        <div class = "number-sub">
+            <h4>Number subject: <%= @subjects.count %></h4>
+        </div>
+
+        <div class = "body-subject">
+            <ul>
+                <% @subjects.each do |sub| %>
+                    <li class = "name-sub">
+                        <%= link_to subject_exams_path(sub) do %>
+                            <%= image_tag(gravatar_for(current_user.email), alt: current_user.name, class: "gravatar") %>
+                            <%= sub.name %>
+                        <% end %>
+                    </li>
+                <% end %>
+                <div class="d-flex justify-content-center">
+                    <%= paginate @subjects, window: 2, theme: 'bootstrap-5',
+                                pagination_class: "pagination-sm flex-wrap justify-content-center",
+                                nav_class: "d-inline-block" %>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

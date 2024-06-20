@@ -18,8 +18,10 @@
         <li><%= link_to 'About', '#', class: 'nav-link px-2' %></li>
       </ul>
 
-      <div class="col-md-3 text-end">
-        <%= link_to "Log out", logout_path, id: "logout-link", method: :delete, class: "btn btn-outline-primary me-2" %>
-      </div>
+      <% if logged_in? %>
+        <div class="col-md-3 text-end">
+          <%= link_to "Log out", logout_path, id: "logout-link", method: :delete, class: "btn btn-outline-primary me-2" %>
+        </div>
+      <% end %>
     </header>
 </div>
