@@ -3,8 +3,10 @@
       <div class = "title_box">
         <p><strong>Thông tin cá nhân</strong></p>
       </div>
-      <p><strong>Mã số: </strong><%= current_user.id %></p>
-      <p><strong>Họ tên: </strong><%= current_user.name %></p>
+      <div class = "infor-user">
+        <a><strong>Mã số: </strong><%= current_user.id %></a>
+        <a><strong>Họ tên: </strong><%= current_user.name %></a>
+      </div>
       <%= image_tag(gravatar_for(current_user.email), alt: current_user.name, class: "gravatar") %>
     </div>
     <div class="exam-section">

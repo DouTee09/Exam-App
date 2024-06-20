@@ -7,6 +7,7 @@
         padding-inline-start: 10px;
         padding-inline-end: 10px;
         .col-md-3 {
+            width: 100px;
             a {
                 img {
                     border-radius: 25px;
@@ -14,11 +15,65 @@
             }
         }
         ul {
+            margin: 0 auto;
             li {
                 .nav-link:hover {
                     color: aqua;
                 }
+                a {
+                    color: black;
+                    font-size: 22px;
+                }
             }
+        }
+    }
+}
+
+.main_content {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    padding-top: 50px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding-block-end: 50px;
+    border: solid 10px whitesmoke;
+    .left_content {
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            color: rgb(1, 123, 196);
+            font-weight: bold;
+            font-size: 18pt;
+            text-align: center;
+        }
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .right_content {
+        width: 500px;
+        h3 {
+            font-size: 15px;
+            font-weight: normal;
+            color: #007f49;
+            text-transform: uppercase;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: #FEFEFE;
+            text-align: center;
+            font-size: 20px;
+        }
+        .btn {
+            height: 50px;
+            width: 200px;
+            margin-block-start: 20px;
+            padding-block: 12px;
+        }
+        .col-sm-10 {
+            margin: 0 auto;
         }
     }
 }

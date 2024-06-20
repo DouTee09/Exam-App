@@ -1,8 +1,10 @@
 .sub-container {
     display: flex;
     .left-box-sub {
-        width: 30%;
         height: auto;
+        width: 20%;
+        margin-left: 100px;
+        margin-block-start: 15px;
         .form-group {
             width: 90%;
             margin: 0 auto;
@@ -14,7 +16,7 @@
     }
 
     .right-box-sub {
-        width: 70%;
+        width: 65%;
         margin: 0 auto;
         .number-sub {
             h4 {
@@ -45,6 +47,10 @@
                     a {
                         color: red;
                         text-decoration: none;
+                    }
+                    img {
+                        height: 80px;
+                        width: 80px;
                     }
                 }
                 li {

@@ -1,5 +1,5 @@
 class SubjectsController < ApplicationController
-  before_action :logged_in
+  before_action :logged_in, only: [:new, :create, :show]
   def new
     @subject = Subject.new
   end
