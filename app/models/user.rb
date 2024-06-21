@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :subjects
-  has_many :answers
+  has_many :subjects, dependent: :destroy
+  has_many :answers, dependent: :destroy
   before_save { email.downcase! }
   validates :email, presence: true, length: { maximum: 255 },
                     uniqueness: true
