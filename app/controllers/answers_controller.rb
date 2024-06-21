@@ -2,7 +2,11 @@ class AnswersController < ApplicationController
   before_action :logged_in
 
   def index
-    @answers = current_user.answers
+    if current_user.role == 1
+      @answers = Answer.all
+    else
+      @answers = current_user.answers
+    end
   end
 
   def show

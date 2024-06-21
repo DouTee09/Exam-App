@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.failed_attempts = 0
+    @user.role = 0
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Exam App"
