@@ -1,1 +1,2 @@
+<% provide(:title, 'Exam') %>
 <%= current_user.role == 1 ? render("index_exam_admin") : render("index_exam_user") %>
