@@ -1,0 +1,61 @@
+.sub-container {
+  display: flex;
+}
+.sub-container .left-box-sub {
+  height: auto;
+  width: 20%;
+  margin-left: 100px;
+  margin-block-start: 15px;
+}
+.sub-container .left-box-sub .form-group {
+  width: 90%;
+  margin: 0 auto;
+}
+.sub-container .left-box-sub .btn {
+  margin-block-start: 10px;
+  margin-inline-start: 5%;
+}
+.sub-container .right-box-sub {
+  width: 65%;
+  margin: 0 auto;
+}
+.sub-container .right-box-sub .number-sub h4 {
+  color: aquamarine;
+  margin-left: 5%;
+}
+.sub-container .right-box-sub .body-subject {
+  width: auto;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+.sub-container .right-box-sub .body-subject ul {
+  list-style-type: none;
+}
+.sub-container .right-box-sub .body-subject ul .name-sub {
+  height: 100px;
+  background-color: aliceblue;
+  justify-content: center;
+  padding-block: 10px;
+  margin-top: 10px;
+  margin-inline-start: 10px;
+  border-radius: 10px;
+}
+.sub-container .right-box-sub .body-subject ul .name-sub .gravatar {
+  padding-inline-start: 10px;
+  border-radius: 20px;
+  padding-inline-end: 10px;
+}
+.sub-container .right-box-sub .body-subject ul .name-sub a {
+  color: red;
+  text-decoration: none;
+}
+.sub-container .right-box-sub .body-subject ul .name-sub img {
+  height: 80px;
+  width: 80px;
+}
+.sub-container .right-box-sub .body-subject ul li {
+  margin-top: 30px;
+  color: red;
+  font-family: monospace;
+  font-weight: 600;
+}/*# sourceMappingURL=subject.css.map */

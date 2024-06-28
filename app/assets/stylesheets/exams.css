@@ -1,0 +1,182 @@
+.title-feature {
+  padding-block-end: 20px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: aliceblue;
+  border-radius: 10px;
+  margin-block-end: 20px;
+  padding-top: 10px;
+}
+
+.exam-container {
+  height: auto;
+  width: 90%;
+  margin-inline-start: 5%;
+  border-radius: 20px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  border: solid 1px red;
+}
+.exam-container .box-info-user {
+  height: auto;
+  width: auto;
+  border-radius: 20px;
+}
+.exam-container .box-info-user h5 {
+  padding-block-start: 10px;
+  text-align: center;
+  font-size: 40px;
+  color: cornflowerblue;
+  font-family: auto;
+}
+.exam-container .box-info-user h4 {
+  padding-inline-start: 10px;
+}
+
+.main-body-exam {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: auto;
+  width: 70%;
+}
+.main-body-exam h2 {
+  text-align: center;
+  background-color: aliceblue;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.main-body-exam .title-box-exam {
+  margin-block-end: 10px;
+}
+.main-body-exam .title-box-exam .mb-3 {
+  border-radius: 10px;
+  background-color: beige;
+  margin-block-end: 10px;
+}
+.main-body-exam .title-box-exam .mb-3 label {
+  padding-inline-start: 10px;
+}
+.main-body-exam .title-box-exam .time-exam {
+  width: 10%;
+}
+.main-body-exam .title-box-exam .time-exam .form-control {
+  text-align: center;
+  margin-top: 10px;
+}
+.main-body-exam .title-box-exam .time-exam label {
+  width: 100%;
+  text-align: center;
+}
+.main-body-exam .title-box-exam .time-exam-create {
+  width: 15%;
+}
+.main-body-exam .title-box-exam .box-time {
+  display: flex;
+}
+.main-body-exam .title-box-exam .box-time .clock-exam {
+  margin-inline-start: 20px;
+  width: 15%;
+  text-align: center;
+  padding-block-end: 10px;
+}
+
+.question-warpper {
+  width: 70%;
+  margin: 0 auto;
+  margin-block-start: 20px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: aquamarine;
+  border-radius: 10px;
+}
+.question-warpper ul li {
+  list-style: none;
+}
+.question-warpper ul li .ques-fea {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  background-color: aquamarine;
+  border-radius: 10px;
+}
+.question-warpper ul li .ques-fea .form-check {
+  display: flex;
+  margin-block-start: 10px;
+  margin-inline-start: -90px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.question-warpper ul li .ques-fea .form-check .form-check-input {
+  margin-inline-start: 1px;
+  margin-inline-end: 10px;
+  margin-block-start: 10px;
+}
+.question-warpper ul li .ques-fea .form-check .form-control {
+  width: 90%;
+}
+.question-warpper ul li .ques-fea .form-check img {
+  width: 20px;
+  height: 20px;
+}
+.question-warpper ul li .ques-fea .form-check a {
+  padding-block-start: 5px;
+  padding-inline-end: 10px;
+}
+.question-warpper ul li .ques-fea .delete-image {
+  text-align: end;
+  padding-inline-end: 20px;
+}
+.question-warpper ul li .ques-fea .delete-image img {
+  height: 30px;
+  padding-block-end: 5px;
+}
+.question-warpper .choise-option {
+  display: flex;
+  margin-block-start: -15px;
+  margin-inline-start: 35px;
+  padding-inline-start: 10px;
+  background-color: lightcyan;
+  border-radius: 10px;
+  width: 130px;
+}
+.question-warpper .choise-option a {
+  text-decoration: none;
+  color: black;
+}
+.question-warpper .choise-option img {
+  padding-block-end: 5px;
+}
+.question-warpper .choise-option .form-control {
+  width: auto;
+}
+.question-warpper .delete-image {
+  text-align: end;
+  padding-inline-end: 20px;
+}
+.question-warpper .delete-image img {
+  height: 30px;
+  padding-block-end: 5px;
+}
+
+.container-show .main-body-exam .questions-container h5 {
+  background: aliceblue;
+  height: 50px;
+  padding-block-start: 10px;
+  text-align: center;
+  border-radius: 10px;
+  color: red;
+}
+.container-show .submit-answer {
+  text-align: center;
+  margin-block-start: 10px;
+  margin-block-end: 30px;
+}
+.container-show .question-warpper .question-box .ques-fea {
+  margin-inline-start: -20px;
+  width: 95%;
+}/*# sourceMappingURL=exams.css.map */

@@ -1,0 +1,61 @@
+.container-answer .answer-header {
+  background-color: aquamarine;
+  height: 50px;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+}
+.container-answer .answer-header h5 {
+  font-size: 25px;
+  padding-block-start: 6px;
+  color: blue;
+}
+.container-answer .information-answer {
+  background-color: aquamarine;
+  width: 40%;
+  margin-inline-start: 10%;
+  margin-block-start: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.container-answer .information-answer p {
+  font-size: 18px;
+}
+.container-answer .information-answer p a {
+  text-decoration: none;
+  margin-inline-start: 20px;
+  font-size: 20px;
+  color: red;
+  font-weight: 500;
+}
+.container-answer .question-wrapper {
+  background-color: azure;
+  width: 80%;
+  margin: 0 auto;
+  margin-block-start: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.container-answer .question-wrapper a {
+  margin-block-start: 3px;
+  background-color: aquamarine;
+  height: 40px;
+  border-radius: 10px;
+  padding-block-start: 5px;
+  padding-inline-start: 10px;
+  font-size: 18px;
+}
+.container-answer .question-wrapper .ques-fea {
+  margin-inline-start: 10px;
+  border-radius: 10px;
+}
+.container-answer .question-wrapper .ques-fea .form-check {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.container-answer .question-wrapper .ques-fea .form-check p {
+  width: 100%;
+  padding-block-start: 10px;
+  padding-inline-start: 10px;
+}/*# sourceMappingURL=answers.css.map */
