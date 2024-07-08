@@ -20,6 +20,9 @@
 
       <% if logged_in? %>
         <div class="col-md-3 text-end">
+          <%= link_to "Information", user_path(current_user), id: "information-user-link", class: "btn btn-outline-info" %>
+        </div>
+        <div class="col-md-3 text-end">
           <%= link_to "Log out", logout_path, id: "logout-link", method: :delete, class: "btn btn-outline-primary me-2" %>
         </div>
       <% end %>

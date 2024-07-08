@@ -8,7 +8,7 @@
             <ul>
                 <% @subjects.each do |sub| %>
                     <li class = "name-sub">
-                        <%= link_to subject_exams_path(sub) do %>
+                        <%= link_to subject_path(sub) do %>
                             <%= image_tag("logo.png", alt: "Default subject image", class: "gravatar") %>
                             <%= sub.name %>
                         <% end %>

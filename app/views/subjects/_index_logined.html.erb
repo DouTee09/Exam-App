@@ -11,7 +11,7 @@
                 <% @subjects.each do |sub| %>
                     <li class = "name-sub">
                         <%= link_to subject_exams_path(sub) do %>
-                            <%= image_tag(gravatar_for(current_user.email), alt: current_user.name, class: "gravatar") %>
+                            <%= image_tag(gravatar_for_subject(sub), alt: sub.name, class: "gravatar") %>
                             <%= sub.name %>
                         <% end %>
                     </li>

@@ -63,3 +63,30 @@
         }
     }
 }
+
+.subject-container {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid aquamarine;
+    .image-subject {
+        display: flex;
+        flex-direction: column;
+        img {
+            height: 100px;
+            width: 100px;
+            border-radius: 10px
+        }
+        text-align: center;
+        span {
+            color: red;
+        }
+    }
+    .subject-content {
+        margin-inline-start: 10px;
+        margin-block-start: 10px;
+    }
+}

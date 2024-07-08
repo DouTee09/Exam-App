@@ -1,1 +1,17 @@
-<h5>Show user here ...</h5>
+<% provide(:title, 'User') %>
+<div class = "user-container">
+    <%= form_with(model: @user, local: true) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', readonly: true %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control', readonly: true %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control', readonly: true %>
+        
+        <%= link_to "Edit", edit_user_path, class: "btn btn-outline-primary submit-infor" %>
+    <% end %>
+</div>

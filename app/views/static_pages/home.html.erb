@@ -8,7 +8,7 @@
         <a><strong>Mã số: </strong><%= current_user.id %></a>
         <a><strong>Họ tên: </strong><%= current_user.name %></a>
       </div>
-      <%= image_tag(gravatar_for(current_user.email), alt: current_user.name, class: "gravatar") %>
+      <%= image_tag(gravatar_for(current_user), alt: current_user.name, class: "gravatar") %>
     </div>
     <div class="exam-section">
       <div class = "title_box">
