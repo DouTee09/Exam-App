@@ -23,7 +23,6 @@ class AnswersController < ApplicationController
     end
   end
 
-
   def new
     @subject = Subject.find_by_id(params[:subject_id])
     @exam = @subject.exams.find_by_id(params[:exam_id])
@@ -56,5 +55,4 @@ class AnswersController < ApplicationController
     def answer_params
       params.require(:answer)
     end
-
 end
