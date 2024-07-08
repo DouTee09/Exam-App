@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
-  root "sessions#new"
-
   get "/home", to: "static_pages#home"
   get "/contact", to: "static_pages#contact"
   get "/about", to: "static_pages#about"
 
-  get "/signup", to: "users#new"
-  post "/signup", to: "users#create"
+  # get "/signup", to: "users#new"
+  # post "/signup", to: "users#create"
 
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
+  # get "/login", to: "sessions#new"
+  # post "/login", to: "sessions#create"
 
-  get "/logout", to: "sessions#destroy"
-  delete "/logout", to: "sessions#destroy"
+  # get "/logout", to: "sessions#destroy"
+  # delete "/logout", to: "sessions#destroy"
 
   resources :users
 
@@ -22,6 +20,12 @@ Rails.application.routes.draw do
       get "failed_update", to: "exam#failed_update"
       resources :answers, only: [:new, :update, :show, :edit]
     end
+  end
+
+  devise_scope :user do
+    root to: "auth/sessions#new"
+    get "/logout" => "auth/sessions#destroy"
+    get "/login" => "auth/sessions#new"
   end
 
   get "/history", to: "answers#index"

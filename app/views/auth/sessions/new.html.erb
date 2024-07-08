@@ -1,0 +1,31 @@
+<% provide(:title, 'Login') %>
+<div class="main_content">
+  <div class="left_content">
+    <%= link_to "HỆ THỐNG THI TRỰC TUYẾN", "#" %>
+    <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "350px", height: "200px") %>
+  </div>
+  <div class="right_content">
+    <%= form_with(url: login_path, scope: :session, local: true) do |form| %>
+      <h3>ĐĂNG NHẬP HỆ THỐNG</h3>
+      <hr>
+      <div class="form-group row">
+        <%= form.label :email, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= form.email_field :email, class: "form-control", placeholder: "Email" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= form.label :password, class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-10">
+          <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <%= form.submit "Log in", class: "btn btn-primary" %>
+          <%= link_to "Sign up", signup_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
