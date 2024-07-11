@@ -1,0 +1,26 @@
+<% provide(:title, 'Forgot password') %>
+<div class="main_content">
+  <div class="left_content">
+    <%= link_to "HỆ THỐNG THI TRỰC TUYẾN", "#" %>
+    <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "350px", height: "200px") %>
+  </div>
+
+  <div class="right_content">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "auth/shared/error_messages", resource: resource %>
+      <h3>QUÊN MẬT KHẨU?</h3>
+      <hr>
+      <div class="form-group row">
+        <%= f.label :email, class: "col-sm-2 col-form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input_email" %>
+      </div>
+
+      <div class="actions send_password">
+        <%= f.submit "Send me reset password instructions", class: "btn btn-info send_pass" %>
+      </div>
+      <div class = "sign_in_up">
+        <%= render "auth/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</div>

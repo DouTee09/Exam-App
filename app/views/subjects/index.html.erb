@@ -1,2 +1,2 @@
 <% provide(:title, "Subject") %>
-<%= logged_in? ? render("subjects/index_logined") : render("subjects/index_unlogin") %>
+<%= user_signed_in? ? render("subjects/index_logined") : render("subjects/index_unlogin") %>

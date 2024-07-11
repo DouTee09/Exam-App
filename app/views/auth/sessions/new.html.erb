@@ -1,0 +1,34 @@
+<% provide(:title, 'Login') %>
+<div class="main_content">
+  <div class="left_content">
+    <%= link_to "HỆ THỐNG THI TRỰC TUYẾN", "#" %>
+    <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "350px", height: "200px") %>
+  </div>
+
+  <div class="right_content">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h3>ĐĂNG NHẬP HỆ THỐNG</h3>
+      <hr>
+      <div class="form-group row">
+        <%= f.label :email, class: "col-sm-2 col-form-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :password, class: "col-sm-2 col-form-label" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%= render "auth/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</div>

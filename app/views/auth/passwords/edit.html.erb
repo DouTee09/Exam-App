@@ -1,0 +1,35 @@
+<% provide(:title, 'Change password') %>
+<div class="main_content">
+  <div class="left_content">
+    <%= link_to "HỆ THỐNG THI TRỰC TUYẾN", "#" %>
+    <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "350px", height: "200px") %>
+  </div>
+
+  <div class="right_content">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "auth/shared/error_messages", resource: resource %>
+      <h3>THAY ĐỔI MẬT KHẨU</h3>
+      <hr>
+      <%= f.hidden_field :reset_password_token %>
+      <div class="form-group row">
+        <%= f.label :password, "New password", class: "col-sm-2 col-form-label" %><br />
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control input_email" %>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :password_confirmation, "Confirm new password", class: "col-sm-2 col-form-label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control input_email" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Change my password", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <div class = "sign_in_up">
+        <%= render "auth/shared/links", class: "btn btn-info send_pass" %>
+      </div>
+  </div>
+</div>
