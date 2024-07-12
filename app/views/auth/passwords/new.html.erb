@@ -8,7 +8,7 @@
   <div class="right_content">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "auth/shared/error_messages", resource: resource %>
-      <h3>QUÊN MẬT KHẨU?</h3>
+      <h3>Forgot password?</h3>
       <hr>
       <div class="form-group row">
         <%= f.label :email, class: "col-sm-2 col-form-label" %><br />
@@ -17,9 +17,6 @@
 
       <div class="actions send_password">
         <%= f.submit "Send me reset password instructions", class: "btn btn-info send_pass" %>
-      </div>
-      <div class = "sign_in_up">
-        <%= render "auth/shared/links" %>
       </div>
     <% end %>
   </div>
