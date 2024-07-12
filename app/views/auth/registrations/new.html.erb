@@ -1,0 +1,44 @@
+<% provide(:title, 'Sign up') %>
+<div class="main_content">
+  <div class="left_content">
+    <%= link_to "HỆ THỐNG THI TRỰC TUYẾN", "#" %>
+    <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "350px", height: "200px") %>
+  </div>
+
+  <div class="right_content">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "auth/shared/error_messages", resource: resource %>
+      <h3>ĐĂNG KÍ TÀI KHOẢN</h3>
+      <hr>
+      <div class="form-group row">
+        <%= f.label :name, class: "col-sm-2 col-form-label" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :email, class: "col-sm-2 col-form-label" %><br />
+        <%= f.email_field :email, autocomplete: "email",class: "form-control" %>
+      </div>
+
+      <div class="form-group row">
+        <div class = "password_minimum">
+            <%= f.label :password, class: "col-sm-2 col-form-label" %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+        </div>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :password_confirmation, class: "col-sm-2 col-form-label" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
+        <%= render "auth/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</div>

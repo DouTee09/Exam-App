@@ -1,18 +1,24 @@
 Rails.application.routes.draw do
-  root "sessions#new"
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  devise_for :users, path: "auth",
+  controllers: { sessions: "auth/sessions", registrations: "auth/registrations", passwords: "auth/passwords" },
+  path_names: {
+    sign_in: "login",
+    sign_up: "cmon_let_me_in",
+    sign_out: "logout",
+    password: "secret",
+    confirmation: "verification",
+    unlock: "unblock",
+    registration: "register"
+  }
+
+  devise_scope :user do
+    root to: "auth/sessions#new"
+  end
 
   get "/home", to: "static_pages#home"
   get "/contact", to: "static_pages#contact"
   get "/about", to: "static_pages#about"
-
-  get "/signup", to: "users#new"
-  post "/signup", to: "users#create"
-
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-
-  get "/logout", to: "sessions#destroy"
-  delete "/logout", to: "sessions#destroy"
 
   resources :users
 

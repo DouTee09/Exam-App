@@ -8,7 +8,6 @@ gem "mysql2"
 gem "puma", "~> 5.0"
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
-gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.4.4", require: false
@@ -17,6 +16,9 @@ gem "faker"
 gem "bootstrap", "~> 5.3"
 gem "kaminari"
 gem "bootstrap5-kaminari-views"
+gem "devise", "~> 4.1"
+gem 'letter_opener', :group => :development
+gem "letter_opener_web", "~> 3.0"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console

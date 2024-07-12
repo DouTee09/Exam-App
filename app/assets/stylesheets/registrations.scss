@@ -1,0 +1,35 @@
+.password_minimum {
+    display: flex;
+    flex-direction: row;
+    em {
+        padding-block-start: 6px;
+        color: red;
+    }
+}
+
+.row {
+    label {
+        width: auto;
+    }
+}
+
+.main_body {
+    display: flex;
+    flex-direction: row;
+    .edit_user {
+        label {
+            width: auto;
+        }
+        .btn {
+            margin-top: 10px;
+        }
+    }
+
+    .unhappy {
+        margin-inline-start: 20px;
+        padding-inline-start: 40px;
+        .btn {
+            margin-top: 10px;
+        }
+    }
+}
