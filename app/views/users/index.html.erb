@@ -1,0 +1,30 @@
+<% provide(:title, 'User') %>
+<div class="sub-container">
+  <div class="right-box-sub">
+    <div class="body-subject">
+      <ul>
+        <% @users.each do |sub| %>
+          <li class="name-sub">
+            <%= link_to "#" do %>
+                <%= image_tag(gravatar_for(sub), alt: sub.name, class: "gravatar") %>
+                <%= link_to sub.name, user_path(sub), class: "name_user" %>
+
+                <% if sub.active %>
+                    <%= link_to "Deactivate", deactivate_path(user_id: sub.id), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-warning" %>
+                <% else %>
+                    <%= link_to "Activate", activate_path(user_id: sub.id), method: :post, data: { confirm: "Are you sure?" }, class: "btn btn-success" %>
+                <% end %>
+
+            <%= link_to image_tag("delete_image.svg", class: "fea_subject"), user_path(sub), method: :delete %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="d-flex justify-content-center">
+        <%= paginate @users, window: 2, theme: 'bootstrap-5',
+                      pagination_class: "pagination-sm flex-wrap justify-content-center",
+                      nav_class: "d-inline-block" %>
+      </div>
+    </div>
+  </div>
+</div>

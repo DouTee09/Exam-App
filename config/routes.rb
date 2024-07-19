@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "/about", to: "static_pages#about"
 
   resources :users
+  post "/deactivate", to: "users#deactivate"
+  post "/activate", to: "users#activate"
 
   resources :subjects do
     resources :exams do

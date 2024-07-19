@@ -4,10 +4,12 @@
   <div class="image-subject">
     <%= image_tag("logo.png", alt: "Default subject image", class: "gravatar") %>
     <%= form_with model: @subject, local: true do |form| %>
-        <%= form.text_field :name, value: @subject.name, class: "sub_name btn btn-outline-info", readonly: true %>
+      <%= form.text_field :name, value: @subject.name, class: "sub_name btn btn-outline-info" %>
   </div>
   <div class="subject-content">
-        <%= form.text_area :content, value: (@subject.content || introduction_for(@subject)), class: "content_sub", readonly: true %>
+        <%= form.text_area :content, value: (@subject.content || introduction_for(@subject)), class: "content_sub" %>
+        <%= form.submit "Update", class: "btn btn-outline-primary btn_update" %>
     <% end %>
   </div>
 </div>
+
