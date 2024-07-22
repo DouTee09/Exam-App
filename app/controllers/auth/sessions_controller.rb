@@ -11,8 +11,14 @@ class Auth::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     if user_signed_in?
-      flash[:success] = "Wellcome signed Exam App"
-      redirect_to home_path
+      if current_user.active
+        flash[:success] = "Wellcome signed Exam App"
+        redirect_to home_path
+      else
+        sign_out(current_user)
+        flash[:danger] = "Your account was deactivated !!!"
+        redirect_to root_path
+      end
     else
       super
     end

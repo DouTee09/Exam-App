@@ -41,6 +41,43 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.page(params[:page]).per(5)
+  end
+
+  def destroy
+    @user = current_user
+    if @user.destroy
+      flash[:success] = "User successfully destroyed"
+      redirect_to users_path
+    else
+      flash[:danger] = "Error while destroying"
+      redirect_to users_path
+    end
+  end
+
+  def deactivate
+    user = User.find(params[:user_id])
+    if current_user.role == 1
+      user.deactivate_account!
+      flash[:success] = "User account deactivated."
+    else
+      flash[:danger] = "You are not authorized to perform this action."
+    end
+    redirect_to users_path
+  end
+
+  def activate
+    user = User.find(params[:user_id])
+    if current_user.role == 1
+      user.activate_account!
+      flash[:success] = "User account activated."
+    else
+      flash[:danger] = "You are not authorized to perform this action."
+    end
+    redirect_to users_path
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password)

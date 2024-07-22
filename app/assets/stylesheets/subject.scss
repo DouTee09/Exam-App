@@ -48,9 +48,27 @@
                         color: red;
                         text-decoration: none;
                     }
-                    img {
+                    .gravatar {
                         height: 80px;
                         width: 80px;
+                    }
+                    .fea_subject {
+                        height: 30px;
+                        width: 30px;
+                    }
+                    form {
+                        margin-top: -6%;
+                        margin-left: 85%;
+                    }
+
+                    .name_user {
+                        display: inline-block;
+                        width: 20%;
+                    }
+
+                    .btn {
+                        color: white;
+                        margin-left: 50%;
                     }
                 }
                 li {
@@ -71,22 +89,51 @@
     margin: 0 auto;
     padding: 10px;
     border-radius: 10px;
-    border: solid aquamarine;
+    border: solid 1px;
     .image-subject {
         display: flex;
         flex-direction: column;
         img {
             height: 100px;
             width: 100px;
-            border-radius: 10px
+            border-radius: 10px;
+            margin: 0 auto;
         }
         text-align: center;
         span {
             color: red;
         }
+        .sub_name {
+            width: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
     }
     .subject-content {
         margin-inline-start: 10px;
         margin-block-start: 10px;
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        .content_sub {
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        .btn_update {
+            width: auto;
+            margin-top: 10px;
+        }
     }
+}
+
+h1 {
+    font-weight: normal;
+    color: #007f49;
+    text-transform: uppercase;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FEFEFE;
+    text-align: center;
+    font-size: 20px;
 }
