@@ -44,9 +44,14 @@
                         border-radius: 20px;
                         padding-inline-end: 10px;
                     }
-                    a {
+                    .name_subject {
                         color: red;
                         text-decoration: none;
+                        display: inline-block;
+                        width: 20%;
+                    }
+                    .fea_top{
+                        margin-left: 50%;
                     }
                     .gravatar {
                         height: 80px;
@@ -64,6 +69,8 @@
                     .name_user {
                         display: inline-block;
                         width: 20%;
+                        text-decoration: none;
+                        color: black;
                     }
 
                     .btn {
@@ -119,10 +126,11 @@
         .content_sub {
             border-radius: 5px;
             padding-left: 10px;
+            margin-bottom: 10px;
         }
         .btn_update {
-            width: auto;
-            margin-top: 10px;
+            width: 100px;
+            margin: 0 auto;
         }
     }
 }

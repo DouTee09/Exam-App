@@ -12,4 +12,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def search
+    @users = User.where("name LIKE ?", "%#{params[:query]}%")
+    @subjects = Subject.where("name LIKE ?", "%#{params[:query]}%")
+  end
 end
