@@ -1,30 +1,15 @@
 <% provide(:title, "Search") %>
 <div class="search_container">
-    <%= form_with url: search_path, method: :get do |f| %>
+    <%= form_for :search, url: search_path, method: :get, remote: true do |f| %>
         <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-6">
-            <div class="form search_box">
-                <%= f.search_field :query, class:"form-control form-input", placeholder:"Please enter here ..."  %>
-                <%= link_to image_tag("search.svg", width: "30px", height: "20px", class: "image_search") %>
-                <%= f.submit "Search", class: "btn btn-primary search_text" %>
+            <div class="col-md-6">
+                <div class="form search_box">
+                    <%= f.text_field :query, class:"form-control form-input", id: "search-input", placeholder:"Please enter here ..."  %>
+                    <%= link_to image_tag("search.svg", width: "30px", height: "20px", class: "image_search") %>
+                    <%= f.submit "Search", class: "btn btn-primary search_text" %>
+                </div>
             </div>
         </div>
-    </div>
     <% end %>
-
-    <div class = "body_search">
-        <% @users.each do |user| %>
-            <div class = "search_box">
-                <%= link_to image_tag(gravatar_for(user), alt: user.name, class: "gravatar") %>
-                <%= link_to highlight(user.name, params[:query]), user_path(user), class: "box_name" %>
-            </div>
-        <% end %>
-        
-        <% @subjects.each do |sub| %>
-            <div class = "search_box">
-                <%= link_to image_tag(gravatar_for_subject(sub), alt: sub.name, class: "gravatar"), subject_exams_path(sub)%>
-                <%= link_to sub.name, subject_path(sub), class: "box_name" %>
-            </div>
-        <% end %>
-    </div>
+    <%= render "search" %>
 </div>

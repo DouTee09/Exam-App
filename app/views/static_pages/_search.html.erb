@@ -1,0 +1,15 @@
+<div class="body_search" id="content_search">
+    <% @users.each do |user| %>
+        <div class="search_box">
+            <%= link_to image_tag(gravatar_for(user), alt: user.name, class: "gravatar") %>
+            <%= link_to highlight(user.name, params[:query]), user_path(user), class: "box_name" %>
+        </div>
+    <% end %>
+    
+    <% @subjects.each do |sub| %>
+        <div class="search_box">
+            <%= link_to image_tag(gravatar_for_subject(sub), alt: sub.name, class: "gravatar"), subject_exams_path(sub)%>
+            <%= link_to sub.name, subject_path(sub), class: "box_name" %>
+        </div>
+    <% end %>
+</div>

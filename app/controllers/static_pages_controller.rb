@@ -16,5 +16,10 @@ class StaticPagesController < ApplicationController
   def search
     @users = User.where("name LIKE ?", "%#{params[:query]}%")
     @subjects = Subject.where("name LIKE ?", "%#{params[:query]}%")
+
+    respond_to do |format|
+      format.html
+      format.js { }
+    end
   end
 end
