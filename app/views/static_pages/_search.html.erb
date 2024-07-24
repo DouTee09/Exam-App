@@ -9,7 +9,7 @@
     <% @subjects.each do |sub| %>
         <div class="search_box">
             <%= link_to image_tag(gravatar_for_subject(sub), alt: sub.name, class: "gravatar"), subject_exams_path(sub)%>
-            <%= link_to sub.name, subject_path(sub), class: "box_name" %>
+            <%= link_to  highlight(sub.name, params[:query]), subject_path(sub), class: "box_name" %>
         </div>
     <% end %>
 </div>

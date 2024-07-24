@@ -19,6 +19,8 @@ gem "bootstrap5-kaminari-views"
 gem "devise", "~> 4.1"
 gem 'letter_opener', :group => :development
 gem "letter_opener_web", "~> 3.0"
+gem "roo"
+gem "roo-xls"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
