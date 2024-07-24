@@ -16,7 +16,7 @@
         <% @users.each do |user| %>
             <div class = "search_box">
                 <%= link_to image_tag(gravatar_for(user), alt: user.name, class: "gravatar") %>
-                <%= link_to user.name, user_path(user), class: "box_name" %>
+                <%= link_to highlight(user.name, params[:query]), user_path(user), class: "box_name" %>
             </div>
         <% end %>
         
