@@ -16,3 +16,19 @@ window.$ = jquery
 
 Rails.start()
 ActiveStorage.start()
+
+$(document).ready(function() {
+    function convertToParamsUrl(str) {
+        return encodeURIComponent(str);
+    }
+    
+    $("#search-input").on("keyup", function(event) {
+        const url = "/search";
+        let fullURL = url + "?query=" + convertToParamsUrl(event.target.value)
+        $.ajax({
+            type: 'GET',
+            url: fullURL,
+            dataType: "script"
+        });
+    })
+});
