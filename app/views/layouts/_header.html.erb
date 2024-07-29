@@ -3,7 +3,7 @@
       <div class="col-md-3 mb-2 mb-md-0 logo_header">
         <a class="d-inline-flex link-body-emphasis text-decoration-none " >
             <%= link_to image_tag("Exam.gif", alt: "Exam logo", width: "50px", height: "50px") %>
-            <h5>EXAM APP</h5>
+            <h5><%= link_to "EXAM APP", home_path %></h5>
         </a>
           <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
         </a>
@@ -18,8 +18,8 @@
             <li><%= link_to 'User', users_path, class: 'nav-link px-2' %></li>
           <% end %>
         <% end %>
-        <li><%= link_to 'Contact', contact_path, class: 'nav-link px-2' %></li>    
         <li><%= link_to 'About', about_path, class: 'nav-link px-2' %></li>
+        <li><%= link_to 'Contact', contact_path, class: 'nav-link px-2' %></li>    
       </ul>
 
       <% if user_signed_in? %>
