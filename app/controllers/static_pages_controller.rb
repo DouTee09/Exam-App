@@ -14,12 +14,17 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @users = User.where("name LIKE ?", "%#{params[:query]}%")
-    @subjects = Subject.where("name LIKE ?", "%#{params[:query]}%")
+    if user_signed_in?
+      @users = User.where("name LIKE ?", "%#{params[:query]}%")
+      @subjects = Subject.where("name LIKE ?", "%#{params[:query]}%")
 
-    respond_to do |format|
-      format.html
-      format.js { }
+      respond_to do |format|
+        format.html
+        format.js { }
+      end
+    else
+      redirect_to root_path
+      flash[:danger] = "Please login !!!"
     end
   end
 end
