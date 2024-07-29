@@ -57,16 +57,18 @@ class ExamsController < ApplicationController
     @exam = @subject.exams.find_by(id: params[:id])
   end
 
+  def new_import
+  end
+
   def import
-    debugger
-    @exam = @subject.exams.new
-    # if Exam.import_file params[:file]
-    #   flash[:success] ="Successfully imported"
-    #   redirect_to home_path
-    # else
-    #   flash[:error] = "Error importing"
-    #   redirect_to home_path
-    # end
+    if params[:import_exam] && params[:import_exam][:file]
+      ImportFileExam.new(params[:import_exam][:file]).import
+      redirect_to home_path
+      flash[:success] = "Import successfully"
+    else
+      redirect_to home_path
+      flash[:danger] = "Import failed"
+    end
   end
 
   private

@@ -20,7 +20,7 @@
       <div id="questions-container">
         <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question", onclick: "addNewQuestion()" %>
         <%= form.submit "Save Exam", class: "btn btn-info" %>
-        <%= link_to "Import Exam", subject_import_path(@subject) , class: "btn btn-secondary", id:"import-exam" %>
+        <%= link_to "Import Exam", subject_import_exam_path(@subject) , class: "btn btn-secondary", id:"import-exam" %>
       </div>
     </div>
   </div>

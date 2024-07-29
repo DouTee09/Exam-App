@@ -8,16 +8,8 @@ class Exam < ApplicationRecord
   validates :time, presence: true
   validate :questions_and_answers_content_present_and_unique
 
-  def self.import_file file
-    spreadsheet = Roo::Spreadsheet.open file
-    header = speedsheet.row 1
-    (2..speedsheet.last_row).each do |i|
-      row = [header, speedsheet.row(i)].transpose.to_h
-      create! row
-    end
-  end
-
   private
+
     def questions_and_answers_content_present_and_unique
       return unless questions.is_a?(Array)
 

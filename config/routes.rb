@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       get "failed_update",  to: "exam#failed_update"
       resources :answers, only: [:new, :update, :show, :edit]
     end
-    get "import",         to: "exams#import"
+    get "import_exam",         to: "exams#new_import"
   end
 
   get "/history",   to: "answers#index"
