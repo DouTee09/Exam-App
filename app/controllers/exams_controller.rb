@@ -57,13 +57,27 @@ class ExamsController < ApplicationController
     @exam = @subject.exams.find_by(id: params[:id])
   end
 
+  def new_import
+  end
+
+  def import
+    if params[:import_exam] && params[:import_exam][:file]
+      ImportFileExam.new(params[:import_exam][:file]).import
+      redirect_to home_path
+      flash[:success] = "Import successfully"
+    else
+      redirect_to home_path
+      flash[:danger] = "Import failed"
+    end
+  end
+
   private
 
-  def find_subject
-    @subject = Subject.find_by(id: params[:subject_id])
-  end
+    def find_subject
+      @subject = Subject.find_by(id: params[:subject_id])
+    end
 
-  def exam_params
-    params.require(:exam)
-  end
+    def exam_params
+      params.require(:exam)
+    end
 end

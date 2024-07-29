@@ -16,22 +16,24 @@ Rails.application.routes.draw do
     root to: "auth/sessions#new"
   end
 
-  get "/home", to: "static_pages#home"
-  get "/contact", to: "static_pages#contact"
-  get "/about", to: "static_pages#about"
-  get "/search", to: "static_pages#search"
+  get "/home",      to: "static_pages#home"
+  get "/contact",   to: "static_pages#contact"
+  get "/about",     to: "static_pages#about"
+  get "/search",    to: "static_pages#search"
 
   resources :users
   post "/deactivate", to: "users#deactivate"
-  post "/activate", to: "users#activate"
+  post "/activate",   to: "users#activate"
 
   resources :subjects do
     resources :exams do
-      get "failed_save", to: "exam#failed_save"
-      get "failed_update", to: "exam#failed_update"
+      collection { post :import }
+      get "failed_save",    to: "exam#failed_save"
+      get "failed_update",  to: "exam#failed_update"
       resources :answers, only: [:new, :update, :show, :edit]
     end
+    get "import_exam",         to: "exams#new_import"
   end
 
-  get "/history", to: "answers#index"
+  get "/history",   to: "answers#index"
 end

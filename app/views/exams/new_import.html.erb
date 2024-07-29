@@ -1,0 +1,17 @@
+<% provide(:title, 'Import Exam') %>
+<div class = "title-feature">
+  <h1 class= "tilte_create">Import Exam</h1>
+</div>
+
+<%= form_for :import_exam, url: "/subjects/#{@subject.id}/exams/import", html: { multipart: true } do |form| %>
+    <div class="main-body-exam">
+        <div class="body-exam">
+            <div id="questions-container">
+                <%= form.file_field :file %>
+                <%= form.submit "Save Exam", class: "btn btn-info" %>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+<br>
