@@ -1,17 +1,19 @@
-<% provide(:title, 'User') %>
-<div class="user-container">
-  <%= form_with(model: @user, local: true) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+<% if can? :update, @user %>
+  <% provide(:title, 'User') %>
+  <div class="user-container">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control', readonly: true %>
-    
-    <%= f.submit "Update", class: "btn btn-outline-primary submit-infor" %>
-  <% end %>
-</div>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control', readonly: true %>
+      
+      <%= f.submit "Update", class: "btn btn-outline-primary submit-infor" %>
+    <% end %>
+  </div>
+<% end %>

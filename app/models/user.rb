@@ -16,6 +16,10 @@ class User < ApplicationRecord
     update_attribute :active, true
   end
 
+  def admin?
+    role == 1
+  end
+
   def deactivate_account!
     update_attribute :active, false
   end

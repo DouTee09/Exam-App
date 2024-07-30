@@ -1,2 +1,4 @@
-<% provide(:title, 'Answer') %>
-<%= render "answer" %>
+<% if can? :create, @answer %>
+    <% provide(:title, 'Answer') %>
+    <%= render "answer" %>
+<% end %>
