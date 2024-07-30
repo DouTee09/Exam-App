@@ -1,108 +1,106 @@
-<% if can? :failed_update, @exam %>  
-  <% provide(:title, 'Exam') %>
-  <div class = "title-feature">
-      <h1>Edit Exam</h1>
-  </div>
+<% provide(:title, 'Exam') %>
+<div class = "title-feature">
+    <h1>Edit Exam</h1>
+</div>
 
-  <%= form_for [@subject, @exam], html: { id:  "form-exam" } do |f| %>
-    <div class="main-body-exam">
-      <%= render "shared/error_messages", object: @exam %>
-      <div class="title-box-exam">
-        <div class="mb-3">
-          <%= f.label :name, "Name Exam" %>
-          <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name %>
-        </div>
-      </div>
-
-      <div class="body-exam">
-        <div id="questions-container">
-          <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question", onclick: "addNewQuestion()" %>
-          <%= f.submit "Update", class: "btn btn-info" %>
-        </div>
+<%= form_for [@subject, @exam], html: { id:  "form-exam" } do |f| %>
+  <div class="main-body-exam">
+    <%= render "shared/error_messages", object: @exam %>
+    <div class="title-box-exam">
+      <div class="mb-3">
+        <%= f.label :name, "Name Exam" %>
+        <%= f.text_field :name, name: "exam[name]", class: "form-control", value: @exam.name %>
       </div>
     </div>
 
-    <% @exam.questions.each_with_index do |question, index| %>
-
-      <div class="question-warpper" data-id="<%= index + 1 %>">
-          <%= f.text_field :questions, name: "exam[questions][][content]", class: "form-control", value: question["content"] %>
-          <ul class="question-box">
-              <li>
-                  <div class="ques-fea">
-
-                      <% question["answers"].each do |answer| %>
-
-                          <div class="form-check">
-                              <%= link_to image_tag("file-excel.svg"), "javascript:void(0)", class: "delete-answer", onclick: "removeAnswer()" %>
-                              <%= f.text_field :questions, name: "exam[questions][][answers][][content]", class: "form-control", value: answer["content"] %>
-                              <%= f.radio_button :questions, true, name: "exam[questions][][answers][][status][#{index + 1}]", class: "form-check-input", checked: answer["status"].present?, onclick: "changeSelected(#{index+1})" %>
-                          </div>
-
-                      <% end %>
-
-                  </div>
-              </li>
-          </ul>
-
-          <div class="choise-option">
-            <a href="javascript:void(0)" onclick="addNewAnswer()">
-              <%= image_tag("circle.svg") %>
-              Add Answer
-          </a>
-          </div>
-
-          <div class="delete-image">
-              <%= link_to image_tag("delete_image.svg"), "javascript:void(0)", class: "delete-button", onclick: "removeQuestion()" %>
-          </div>
+    <div class="body-exam">
+      <div id="questions-container">
+        <%= link_to "Add question", "javascript:void(0)", class: "btn btn-success", id: "add-question", onclick: "addNewQuestion()" %>
+        <%= f.submit "Update", class: "btn btn-info" %>
       </div>
+    </div>
+  </div>
 
-    <% end %>
+  <% @exam.questions.each_with_index do |question, index| %>
+
+    <div class="question-warpper" data-id="<%= index + 1 %>">
+         <%= f.text_field :questions, name: "exam[questions][][content]", class: "form-control", value: question["content"] %>
+        <ul class="question-box">
+            <li>
+                <div class="ques-fea">
+
+                    <% question["answers"].each do |answer| %>
+
+                        <div class="form-check">
+                            <%= link_to image_tag("file-excel.svg"), "javascript:void(0)", class: "delete-answer", onclick: "removeAnswer()" %>
+                            <%= f.text_field :questions, name: "exam[questions][][answers][][content]", class: "form-control", value: answer["content"] %>
+                            <%= f.radio_button :questions, true, name: "exam[questions][][answers][][status][#{index + 1}]", class: "form-check-input", checked: answer["status"].present?, onclick: "changeSelected(#{index+1})" %>
+                        </div>
+
+                    <% end %>
+
+                </div>
+            </li>
+        </ul>
+
+        <div class="choise-option">
+          <a href="javascript:void(0)" onclick="addNewAnswer()">
+            <%= image_tag("circle.svg") %>
+            Add Answer
+        </a>
+        </div>
+
+        <div class="delete-image">
+            <%= link_to image_tag("delete_image.svg"), "javascript:void(0)", class: "delete-button", onclick: "removeQuestion()" %>
+        </div>
+    </div>
 
   <% end %>
 
-  <%= render "exam_template" %>
-
-  <script>
-    // Dem so cau hoi hien co de sinh id cho cau moi
-    var counter = <%= @exam.questions.size %>;
-    
-    function addNewAnswer(e) {
-      var dataID = event.target.parentNode.parentNode.dataset.id;
-      var box = document.getElementById("answer-box").content;
-
-      //Set them [dataID] vao name cua radio
-      box.querySelector("input[type=radio]").name = `exam[questions][][answers][][status][${dataID}]`;
-
-      var template = document.getElementById("answer-box").content.cloneNode(true);
-      var answerBox = event.target.parentNode.parentNode.querySelector("ul");
-      answerBox.appendChild(template);
-    }
-
-    function changeSelected(e, answerGroupID) {
-      var inputTarget = event.target;
-      // $(`input[name="exam[questions][][answers][][status][${answerGroupID}]"]`).toArray().forEach((e) => $(e).prop("checked", false));
-      $(inputTarget).prop("checked", true);
-      console.log(inputTarget)
-    }
-
-    function addNewQuestion(e) {
-      counter++;
-      var template = document.getElementById('question-template').content.cloneNode(true);
-      template.querySelector(".question-warpper").setAttribute("data-id", counter);
-      var dataID = template.querySelector(".question-warpper").dataset.id;
-      template.querySelector("input[type=radio]").name =  `exam[questions][][answers][][status][${dataID}]`;
-      var formExam = document.getElementById('form-exam');
-      formExam.appendChild(template);
-    }
-
-    function removeQuestion(e) {
-      var questionWrapper = event.target.parentNode.parentNode.parentNode;
-      questionWrapper.remove();
-    }
-
-    function removeAnswer(e){
-      var answerWrapper = event.target.parentNode.parentNode;
-      answerWrapper.remove();
-    }
-  </script>
 <% end %>
+
+<%= render "exam_template" %>
+
+<script>
+  // Dem so cau hoi hien co de sinh id cho cau moi
+  var counter = <%= @exam.questions.size %>;
+  
+  function addNewAnswer(e) {
+    var dataID = event.target.parentNode.parentNode.dataset.id;
+    var box = document.getElementById("answer-box").content;
+
+    //Set them [dataID] vao name cua radio
+    box.querySelector("input[type=radio]").name = `exam[questions][][answers][][status][${dataID}]`;
+
+    var template = document.getElementById("answer-box").content.cloneNode(true);
+    var answerBox = event.target.parentNode.parentNode.querySelector("ul");
+    answerBox.appendChild(template);
+  }
+
+  function changeSelected(e, answerGroupID) {
+    var inputTarget = event.target;
+    // $(`input[name="exam[questions][][answers][][status][${answerGroupID}]"]`).toArray().forEach((e) => $(e).prop("checked", false));
+    $(inputTarget).prop("checked", true);
+    console.log(inputTarget)
+  }
+
+  function addNewQuestion(e) {
+    counter++;
+    var template = document.getElementById('question-template').content.cloneNode(true);
+    template.querySelector(".question-warpper").setAttribute("data-id", counter);
+    var dataID = template.querySelector(".question-warpper").dataset.id;
+    template.querySelector("input[type=radio]").name =  `exam[questions][][answers][][status][${dataID}]`;
+    var formExam = document.getElementById('form-exam');
+    formExam.appendChild(template);
+  }
+
+  function removeQuestion(e) {
+    var questionWrapper = event.target.parentNode.parentNode.parentNode;
+    questionWrapper.remove();
+  }
+
+  function removeAnswer(e){
+    var answerWrapper = event.target.parentNode.parentNode;
+    answerWrapper.remove();
+  }
+</script>

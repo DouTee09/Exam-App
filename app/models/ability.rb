@@ -6,11 +6,11 @@ class Ability
 
     can :read, [Answer, Subject], user: user
     can [:update, :read], User, user: user
-    can :failed_save, :failed_update
+    
 
     if user.admin?
       can [:read, :create, :update, :destroy], :all
-      can :import, Exam
+      can :manage, :all
     end
   end
 end
