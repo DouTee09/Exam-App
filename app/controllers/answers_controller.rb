@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @answers = current_user.answers.find_by_id(params[:id])
+    @answer = current_user.answers.find_by_id(params[:id])
   end
 
   def edit

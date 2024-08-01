@@ -1,27 +1,32 @@
-<% provide(:title, 'Answer') %>
-<div class = "container-answer">
-    <div class="answer-header">
-        <h5>Information Answer</h5>
-    </div>
-    <div class =  "information-answer">
-        <p>Tên môn học: <%= link_to @answers.exam.subject.name, "#" %></p>
-        <p>Tên bài thi: <a><%= @answers.exam.name %></a></p>
-        <p>Thời gian thi: <a><%= @answers.exam.time %> minute</a></p>
-    </div>
-
-    <% @answers.questions.each_with_index do |question, index| %>
-        <div class="question-wrapper">
-            <a><%= question["content"] %></a>
-            <div class = "ques-fea">
-                <% question["answer"].each do |ans| %>
-                    <div class= "form-check">
-                        <p><%= ans["content"] %></p>
-                        <%= radio_button_tag "answer[#{index}]", "#{index}", ans["status"].present?, disabled: true %>
-                    </div>
-                <% end %>
-            </div>
+<% if can? :read, @answer %>
+    <% provide(:title, 'Answer') %>
+    <div class = "container-answer">
+        <div class="answer-header">
+            <h5>Information Answer</h5>
         </div>
-    <% end %>
-</div>
-<br>
-<br>
+        <div class =  "information-answer">
+            <p>Tên môn học: <%= link_to @answer.exam.subject.name, "#" %></p>
+            <p>Tên bài thi: <a><%= @answer.exam.name %></a></p>
+            <p>Thời gian thi: <a><%= @answer.exam.time %> minute</a></p>
+        </div>
+
+        <% @answer.questions.each_with_index do |question, index| %>
+            <div class="question-wrapper">
+                <a><%= question["content"] %></a>
+                <div class = "ques-fea">
+                    <% question["answer"].each do |ans| %>
+                        <div class= "form-check">
+                            <p><%= ans["content"] %></p>
+                            <%= radio_button_tag "answer[#{index}]", "#{index}", ans["status"].present?, disabled: true %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <br>
+
+<% else %>
+    <h1>Not authorized  </h1>
+<% end %>
