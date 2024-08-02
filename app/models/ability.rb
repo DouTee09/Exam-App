@@ -6,7 +6,7 @@ class Ability
 
     can :read, [Answer, Subject], user: user
     can [:update, :read], User, user: user
-    
+
 
     if user.admin?
       can [:read, :create, :update, :destroy], :all

@@ -20,7 +20,7 @@ class StaticPagesController < ApplicationController
 
       respond_to do |format|
         format.html
-        format.js { }
+        format.js 
       end
     else
       redirect_to root_path

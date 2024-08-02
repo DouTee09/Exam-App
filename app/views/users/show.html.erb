@@ -1,4 +1,4 @@
-<% if can? :read, @user %> 
+
     <% provide(:title, 'User') %>
     <div class = "user-container">
         <%= form_with(model: @user, local: true) do |f| %>
@@ -11,4 +11,4 @@
             <%= f.email_field :email, class: 'form-control', readonly: true %>
         <% end %>
     </div>
-<% end %>
+

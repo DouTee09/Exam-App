@@ -1,5 +1,9 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => "/sidekiq"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   devise_for :users, path: "auth",
   controllers: { sessions: "auth/sessions", registrations: "auth/registrations", passwords: "auth/passwords" },
   path_names: {

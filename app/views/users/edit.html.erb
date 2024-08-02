@@ -1,4 +1,4 @@
-<% if can? :update, @user %>
+
   <% provide(:title, 'User') %>
   <div class="user-container">
     <%= form_with(model: @user, local: true) do |f| %>
@@ -16,4 +16,4 @@
       <%= f.submit "Update", class: "btn btn-outline-primary submit-infor" %>
     <% end %>
   </div>
-<% end %>
+

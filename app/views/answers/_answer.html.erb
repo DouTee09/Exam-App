@@ -29,7 +29,7 @@
                         <div class="ques-fea">
                             <% question["answers"].each do |answer| %>
                                 <div class="form-check">
-                                    <%= f.text_field :questions, name: "answer[questions][][answer][][content]", class: "form-control", value: answer["content"] %>
+                                    <%= f.text_field :questions, name: "answer[questions][][answer][][content]", class: "form-control", value: answer["content"], readonly: true %>
                                     <%= f.radio_button :questions, true, name: "answer[questions][][answer][][status][#{index + 1}]", class: "form-check-input"%>
                                 </div>
                             <% end %>

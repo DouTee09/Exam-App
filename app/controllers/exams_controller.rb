@@ -62,11 +62,12 @@ class ExamsController < ApplicationController
 
   def import
     if params[:import_exam] && params[:import_exam][:file]
-      ImportFileExam.new(params[:import_exam][:file]).import
-      redirect_to home_path
+      content_file = load_content_file
+      ImportFileExamJob.perform_async(content_file)
+      redirect_to subject_exams_path
       flash[:success] = "Import successfully"
     else
-      redirect_to home_path
+      redirect_to subject_exams_path
       flash[:danger] = "Import failed"
     end
   end
@@ -79,5 +80,16 @@ class ExamsController < ApplicationController
 
     def exam_params
       params.require(:exam)
+    end
+
+    def load_content_file
+      rows = []
+      spreadsheet = Roo::Spreadsheet.open(params[:import_exam][:file].path)
+      header = spreadsheet.row(1)
+      (2..spreadsheet.last_row).each do |i|
+        rows << Hash[[header, spreadsheet.row(i)].transpose]
+      end
+
+      rows
     end
 end

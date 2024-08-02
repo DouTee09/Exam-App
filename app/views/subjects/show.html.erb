@@ -1,15 +1,14 @@
-<% if can? :read, @subject %> 
-  <% provide(:title, "Subject") %>
-  <h1> THÔNG TIN MÔN HỌC </h1>
-  <div class="subject-container">
-    <div class="image-subject">
-      <%= image_tag("logo.png", alt: "Default subject image", class: "gravatar") %>
-      <%= form_with model: @subject, local: true do |form| %>
-          <%= form.text_field :name, value: @subject.name, class: "sub_name btn btn-outline-info", readonly: true %>
-    </div>
-    <div class="subject-content">
-          <%= form.text_area :content, value: (@subject.content || introduction_for(@subject)), class: "content_sub", readonly: true %>
-      <% end %>
-    </div>
+<% provide(:title, "Subject") %>
+<h1> THÔNG TIN MÔN HỌC </h1>
+<div class="subject-container">
+  <div class="image-subject">
+    <%= image_tag("logo.png", alt: "Default subject image", class: "gravatar") %>
+    <%= form_with model: @subject, local: true do |form| %>
+        <%= form.text_field :name, value: @subject.name, class: "sub_name btn btn-outline-info", readonly: true %>
   </div>
-<% end %>
+  <div class="subject-content">
+        <%= form.text_area :content, value: (@subject.content || introduction_for(@subject)), class: "content_sub", readonly: true %>
+    <% end %>
+  </div>
+</div>
+
