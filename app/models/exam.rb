@@ -3,8 +3,7 @@ class Exam < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   serialize :questions, Array
-  validates :name, presence: true, length: { maximum: 255 },
-                   uniqueness: true
+  validates :name, presence: true, length: { maximum: 255 }
   validates :time, presence: true
   validate :questions_and_answers_content_present_and_unique
 

@@ -10,19 +10,19 @@
       <h3>Sign in</h3>
       <hr>
       <div class="form-group row">
-        <%= f.label :email, class: "col-sm-2 col-form-label" %><br />
+        <label class="col-sm-2 col-form-label">Email</label>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="form-group row">
-        <%= f.label :password, class: "col-sm-2 col-form-label" %><br />
+        <label class="col-sm-2 col-form-label">Password</label>
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
         <div>
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+          <label>Remember me</label>
         </div>
       <% end %>
       <div class="actions">
