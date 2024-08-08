@@ -22,6 +22,11 @@
         <li><%= link_to 'Contact', contact_path, class: 'nav-link px-2' %></li>    
       </ul>
 
+      <div class = "language_box">
+        <%= link_to image_tag("list.svg", alt: "List feature", width: "50px", height: "50px") %>
+        <%= link_to image_tag("list.svg", alt: "List feature", width: "50px", height: "50px") %>
+      </div>
+
       <% if user_signed_in? %>
         <div class="dropdown"> 
           <button class="dropbtn">
