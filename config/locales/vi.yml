@@ -20,3 +20,24 @@ vi:
       about: "DouTee"
       seach: "Tìm kiếm"
       logout: "Đăng xuất"
+  subjects:
+    index:
+      create_sub: "Thêm môn học mới"
+      name_sub: "Tên môn học"
+      button_create_sub: "Thêm mới"
+      number_sub: "Số môn học: "
+  answers:
+    index:
+      title: "Lịch sử bài thi"
+      number_answer: "STT"
+      name_answer: "Tên bài thi"
+      name_sub: "Môn thi"
+      score: "Điểm"
+      detail: "Xem chi tiết"
+  users:
+    index:
+      deactivate: "Không hoạt động"
+      inactive: "Hoạt động"
+      you: "Bạn"
+      
+      

@@ -4,7 +4,7 @@
 
         <div class = "right-box-sub">
             <div class = "number-sub">
-                <h4>Number subject: <%= @subjects.count %></h4>
+                <h4><%= t('subjects.index.number_sub') %> <%= @subjects.count %></h4>
             </div>
 
             <div class = "body-subject">
@@ -22,7 +22,9 @@
                     <div class="d-flex justify-content-center">
                         <%= paginate @subjects, window: 2, theme: 'bootstrap-5',
                                     pagination_class: "pagination-sm flex-wrap justify-content-center",
-                                    nav_class: "d-inline-block" %>
+                                    nav_class: "d-inline-block", 
+                                    :previous => t('.paginate.previous'),
+                                    :next     => t('.paginate.next') %>
                     </div>
                 </ul>
             </div>

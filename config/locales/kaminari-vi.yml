@@ -1,0 +1,8 @@
+vi:
+  views:
+    pagination:
+      first: "« ĐẦU"
+      last: "CUỐI »"
+      previous: "‹ TRƯỚC"
+      next: "SAU ›"
+      truncate: "…"
