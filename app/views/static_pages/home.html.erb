@@ -2,17 +2,17 @@
 <div class="container-main">
     <div class="personal-info">
       <div class = "title_box">
-        <p><strong>Thông tin cá nhân</strong></p>
+        <p><strong><%= t('.information_user') %></strong></p>
       </div>
       <div class = "infor-user">
-        <a><strong>Mã số: </strong><%= current_user.id %></a>
-        <a><strong>Họ tên: </strong><%= current_user.name %></a>
+        <a><strong><%= t('.user_id') %></strong><%= current_user.id %></a>
+        <a><strong><%= t('.user_name') %></strong><%= current_user.name %></a>
       </div>
       <%= image_tag(gravatar_for(1), alt: current_user.name, class: "gravatar") %>
     </div>
     <div class="exam-section">
       <div class = "title_box">
-        <p><strong>Bấm chọn bài thi dưới đây để làm bài</strong></p>
+        <p><strong><%= t('.title_box') %></strong></p>
       </div>
       <div class="list_test">
         <% @exams.each do |exam| %>

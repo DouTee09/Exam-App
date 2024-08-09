@@ -1,0 +1,22 @@
+vi:
+  static_pages: 
+    home:
+      information_user: "Thông tin cá nhân"
+      user_id: "Mã số: "
+      user_name: "Họ tên: "
+      title_box: "Bấm chọn bài thi dưới đây để làm bài"
+      subject_name: "Môn học: "
+      exam_name: "Bài thi: "
+      note: "Nếu chưa nhìn thấy bài thi, bạn cần chờ ở đây để được vào thi. Cán bộ coi/hỏi thi sẽ gọi bạn vào thi sớm. Sau 2 phút chờ, bạn có thể kích vào nút 'Tải lại trang' dưới đây và kiểm tra bài thi đã xuất hiện hay chưa."
+      reload_button: "Tải lại trang"
+      describe: "Ứng dụng thi của DouTee"
+      about: "DouTee"
+      contact: "Liên hệ"
+      new: "Tin tức"
+      home_page: "Trang chủ"
+      subject: "Môn học"
+      history: "Lịch sử"
+      user: "Người dùng"
+      about: "DouTee"
+      seach: "Tìm kiếm"
+      logout: "Đăng xuất"

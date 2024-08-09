@@ -23,6 +23,7 @@ gem "roo"
 gem "roo-xls"
 gem "cancancan"
 gem "sidekiq"
+gem 'rails-i18n'
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
