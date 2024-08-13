@@ -2,17 +2,17 @@
     <% provide(:title, "History") %>
     <div class = "exam-container">
         <div class = "box-info-user">
-            <h5>Lịch sử bài thi</h5>
+            <h5><%= t('answers.index.title') %></h5>
         </div>
         <div class = "box-info-exam">
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">STT</th>
-                        <th scope="col">Tên bài thi</th>
-                        <th scope="col">Môn thi</th>
-                        <th scope="col">Điểm</th>
-                        <th scope="col">Xem chi tiết</th>
+                        <th scope="col"><%= t('answers.index.number_answer') %></th>
+                        <th scope="col"><%= t('answers.index.name_answer') %></th>
+                        <th scope="col"><%= t('answers.index.name_sub') %></th>
+                        <th scope="col"><%= t('answers.index.score') %></th>
+                        <th scope="col"><%= t('answers.index.detail') %></th>
                     </tr>
                 </thead>
                 <tbody>
